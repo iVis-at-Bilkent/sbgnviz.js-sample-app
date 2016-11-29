@@ -29,7 +29,7 @@ var appUtilities = {
     // If it is 'during' use it as is. Set 'randomize' and 'fit' options to false
     var preferences = {
       randomize: false,
-      animate: this.getLayoutProperties().animateOnDrawingChanges ? 'end' : false,
+      animate: this.getSbgnProperties().animateOnDrawingChanges ? 'end' : false,
       fit: false
     };
     if (this.layoutPropertiesView.currentLayoutProperties.animate === 'during') {
