@@ -202,8 +202,6 @@ module.exports = function () {
         clearTimeout(this.qtipTimeOutFcn);
         this.qtipTimeOutFcn = null;
       }
-      this.mouseover = false;           //make preset layout to redraw the nodes
-      cy.forceRender();
     });
 
     cy.on('tap', function (event) {
