@@ -78,6 +78,10 @@ var appUtilities = {
     }
   },
   nodeQtipFunction: function (node) {
+    if (node.renderedStyle("label") == node.data("label") && node.data("statesandinfos").length == 0 && node.data("class") != "complex") {
+      return;
+    }
+    
     var qtipContent = sbgnviz.getQtipContent(node);
     
     if (!qtipContent) {
