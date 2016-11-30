@@ -39,11 +39,11 @@ module.exports = function () {
 
     contextMenus.appendMenuItems([
       {
-        id: 'ctx-menu-sbgn-properties',
+        id: 'ctx-menu-general-properties',
         title: 'Properties...',
         coreAsWell: true,
         onClickFunction: function (event) {
-          $("#sbgn-properties").trigger("click");
+          $("#general-properties").trigger("click");
         }
       },
       {
@@ -161,10 +161,10 @@ module.exports = function () {
       fitPadding: 10,
       fitSelector: ':visible',
       animateOnFit: function () {
-        return appUtilities.getSbgnProperties().animateOnDrawingChanges;
+        return appUtilities.getGeneralProperties().animateOnDrawingChanges;
       },
       animateOnZoom: function () {
-        return appUtilities.getSbgnProperties().animateOnDrawingChanges;
+        return appUtilities.getGeneralProperties().animateOnDrawingChanges;
       }
     });
 

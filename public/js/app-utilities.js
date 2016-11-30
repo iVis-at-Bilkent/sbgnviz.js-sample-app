@@ -11,7 +11,7 @@ var appUtilities = {
     }
     return this.layoutPropertiesView.currentLayoutProperties;
   },
-  getSbgnProperties: function() {
+  getGeneralProperties: function() {
     if (this.generalPropertiesView === undefined) {
       return undefined;
     }
@@ -29,7 +29,7 @@ var appUtilities = {
     // If it is 'during' use it as is. Set 'randomize' and 'fit' options to false
     var preferences = {
       randomize: false,
-      animate: this.getSbgnProperties().animateOnDrawingChanges ? 'end' : false,
+      animate: this.getGeneralProperties().animateOnDrawingChanges ? 'end' : false,
       fit: false
     };
     if (this.layoutPropertiesView.currentLayoutProperties.animate === 'during') {
@@ -42,13 +42,13 @@ var appUtilities = {
     var self = this;
     return {
       fisheye: function () {
-        return self.getSbgnProperties().rearrangeAfterExpandCollapse;
+        return self.getGeneralProperties().rearrangeAfterExpandCollapse;
       },
       animate: function () {
-        return self.getSbgnProperties().animateOnDrawingChanges;
+        return self.getGeneralProperties().animateOnDrawingChanges;
       },
       layoutBy: function () {
-        if (!self.getSbgnProperties().rearrangeAfterExpandCollapse) {
+        if (!self.getGeneralProperties().rearrangeAfterExpandCollapse) {
           return;
         }
 

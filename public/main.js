@@ -44,15 +44,15 @@ sbgnviz({
   imgPath: '../node_modules/sbgnviz/src/img',
   // whether to fit label to nodes
   fitLabelsToNodes: function () {
-    return appUtilities.getSbgnProperties().fitLabelsToNodes;
+    return appUtilities.getGeneralProperties().fitLabelsToNodes;
   },
   // dynamic label size it may be 'small', 'regular', 'large'
   dynamicLabelSize: function () {
-    return appUtilities.getSbgnProperties().dynamicLabelSize;
+    return appUtilities.getGeneralProperties().dynamicLabelSize;
   },
   // percentage used to calculate compound paddings
   compoundPadding: function () {
-    return appUtilities.getSbgnProperties().compoundPadding;
+    return appUtilities.getGeneralProperties().compoundPadding;
   },
   undoable: true
 }, libs);
