@@ -95,7 +95,7 @@ module.exports = function () {
       {
         id: 'ctx-menu-collapse',
         title: 'Collapse',
-        selector: 'node[expanded-collapsed!="collapsed"][sbgnclass="complex"],[expanded-collapsed!="collapsed"][sbgnclass="compartment"]',
+        selector: 'node[expanded-collapsed!="collapsed"][class="complex"],[expanded-collapsed!="collapsed"][class="compartment"]',
         onClickFunction: function (event) {
           cy.undoRedo().do("collapse", {
             nodes: event.cyTarget
@@ -113,7 +113,7 @@ module.exports = function () {
       {
         id: 'ctx-menu-biogene-properties',
         title: 'BioGene Properties',
-        selector: 'node[sbgnclass="macromolecule"],[sbgnclass="nucleic acid feature"],[sbgnclass="unspecified entity"]',
+        selector: 'node[class="macromolecule"],[class="nucleic acid feature"],[class="unspecified entity"]',
         onClickFunction: function (event) {
           bioGeneQtip(event.cyTarget);
         }

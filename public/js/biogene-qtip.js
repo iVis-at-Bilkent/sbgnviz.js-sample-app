@@ -30,14 +30,14 @@ var bioGeneQtip = function (node) {
     node.qtipTimeOutFcn = null;
   }
 
-  var geneClass = node._private.data.sbgnclass;
+  var geneClass = node._private.data.class;
   if (geneClass != 'macromolecule' && geneClass != 'nucleic acid feature' &&
           geneClass != 'unspecified entity')
     return;
 
   // use a biogene proxy (no PHP) to enable CORS requests (AJAX)
   var queryScriptURL = "http://www.pathwaycommons.org/biogene/retrieve.do"; //="sampleapp-components/php/BioGeneQuery.php";
-  var geneName = node._private.data.sbgnlabel;
+  var geneName = node._private.data.label;
 
   // set the query parameters
   var queryParams =
@@ -73,7 +73,7 @@ var bioGeneQtip = function (node) {
         }, function (xhr, status, error) {
             api.set('content.text', "Error retrieving data: " + error);
         });
-          api.set('content.title', node._private.data.sbgnlabel);
+          api.set('content.title', node._private.data.label);
           return _.template($("#loading-small-template").html());
       }
     },
