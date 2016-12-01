@@ -15,6 +15,9 @@ module.exports = function () {
   $(document).ready(function ()
   {
     console.log('init the sbgnviz template/page');
+    
+    $(window).on('resize', dynamicResize);
+    dynamicResize();
 
     layoutPropertiesView = appUtilities.layoutPropertiesView = new BackboneViews.LayoutPropertiesView({el: '#layout-properties-table'});
     generalPropertiesView = appUtilities.generalPropertiesView = new BackboneViews.GeneralPropertiesView({el: '#general-properties-table'});
@@ -23,10 +26,6 @@ module.exports = function () {
     toolbarButtonsAndMenu();
 
     loadSample('neuronal_muscle_signalling.xml');
-
-    $(window).on('resize', dynamicResize);
-    dynamicResize();
-
   });
   
   // Events triggered by sbgnviz module
