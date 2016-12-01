@@ -33,7 +33,7 @@ module.exports = function () {
     appUtilities.setFileContent(filename);
   });
   
-  $(document).on('sbgnvizUpdateEnd', function(event) {
+  $(document).on('updateGraphEnd', function(event) {
     appUtilities.resetUndoRedoButtons();
   });
 

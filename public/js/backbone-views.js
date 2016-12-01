@@ -389,7 +389,7 @@ var PathsBetweenQueryView = Backbone.View.extend({
         url: queryURL,
         type: 'GET',
         success: function (data) {
-          sbgnviz.sbgnvizUpdate(sbgnviz.convertSbgnmlToJson(data));
+          sbgnviz.updateGraph(sbgnviz.convertSbgnmlToJson(data));
           sbgnviz.endSpinner('paths-between-spinner');
         }
       });
