@@ -307,7 +307,7 @@ var GeneralPropertiesView = Backbone.View.extend({
       self.currentSBGNProperties.animateOnDrawingChanges =
               document.getElementById("animate-on-drawing-changes").checked;
 
-      sbgnviz.refreshPaddings();
+      sbgnviz.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
       cy.style().update();
     });
 
