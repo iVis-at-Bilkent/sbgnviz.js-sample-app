@@ -2,8 +2,8 @@
   "name": "sbgnviz-js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-bundle-js": "browserify public/main.js -o public/bundle.js --debug",
-    "watch-js": "nodemon -e js --watch public --ignore public/bundle.js -x \"npm run build-bundle-js\"",
+    "build-bundle-js": "browserify app/main.js -o app/bundle.js --debug",
+    "watch-js": "nodemon -e js --watch app --ignore app/bundle.js -x \"npm run build-bundle-js\"",
     "watch-server": "nodemon server.js",
     "release-build": "npm run build-bundle-js",
     "debug-build": "parallelshell \"npm run watch-js\" \"npm run watch-server\""
