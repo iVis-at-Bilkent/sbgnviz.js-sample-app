@@ -162,7 +162,7 @@ module.exports = function () {
       sbgnviz.collapseComplexes();
     });
     $("#expand-complexes").click(function (e) {
-      sbgnviz.expandComplexes
+      sbgnviz.expandComplexes();
     });
 
     $("#collapse-all").click(function (e) {
