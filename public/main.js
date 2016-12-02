@@ -1,4 +1,4 @@
-var sbgnviz = require('../sbgnviz');
+var sbgnviz = require('sbgnviz');
 var filesaverjs = require('filesaverjs');
 window.jQuery = window.$ = require('jQuery'); // jQuery should be global because jQuery.qtip extension is not compatible with commonjs
 var cytoscape = require('cytoscape-for-sbgnviz');
