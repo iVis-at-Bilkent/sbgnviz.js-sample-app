@@ -25,7 +25,7 @@ npm install
 npm run debug-build
 ```
 
-Then, open a web browser and navigate to locahost:3000. Please note that the default port is 3000 but you can run this application in another port by setting 'port' environment variable.
+Then, open a web browser and navigate to localhost:3000. Please note that the default port is 3000 but you can run this application in another port by setting 'port' environment variable.
 
 ## Highlights
 
