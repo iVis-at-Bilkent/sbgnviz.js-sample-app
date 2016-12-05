@@ -148,12 +148,8 @@ body {
     width: 0;
 }
 
-.ui-cytoscape-panzoom {
-    z-index: -100 !important;
-}
-
 .cy-panzoom {
-    z-index: -100 !important;
+    z-index: 1000 !important;
 }
 
 .qtip-bootstrap .qtip-titlebar{
