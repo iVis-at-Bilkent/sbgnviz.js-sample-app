@@ -149,7 +149,11 @@ body {
 }
 
 .ui-cytoscape-panzoom {
-    z-index: -100;
+    z-index: -100 !important;
+}
+
+.cy-panzoom {
+    z-index: -100 !important;
 }
 
 .qtip-bootstrap .qtip-titlebar{
@@ -369,14 +373,16 @@ menu:not([title]):before{
     width: 175px !important;
 }
 
-.accordion-toggle:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content:"\25B3"; 
-    float: right;     
+.modal-header {
+    background-color: #0B9BCD !important;
+    color: #ffffff !important;
 }
 
-.accordion-toggle.collapsed:after {
-    /* symbol for "collapsed" panels */
-    content:"\25BD";
+.modal-footer {
+    background-color: #0B9BCD !important;
+    color: #ffffff !important;
+}
+
+.modal-content {
+    overflow:hidden !important;
 }
