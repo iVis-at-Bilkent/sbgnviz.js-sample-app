@@ -21,7 +21,6 @@ module.exports = function () {
     cy.expandCollapse(getExpandCollapseOptions());
 
     var contextMenus = cy.contextMenus({
-      menuItemClasses: ['customized-context-menus-menu-item']
     });
 
     cy.edgeBendEditing({
