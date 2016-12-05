@@ -25,7 +25,13 @@ module.exports = function () {
 
     toolbarButtonsAndMenu();
 
-    loadSample('neuronal_muscle_signalling.xml');
+    // loadSample is called before the container is resized in dynamicResize function, so we need to wait
+    // wait until it is resized before loading the default sample. As the current solution we set a 100 ms 
+    // time out before loading the default sample. 
+    // TODO search for a better way.
+    setTimeout(function(){
+      loadSample('neuronal_muscle_signalling.xml');
+    }, 100);
   });
   
   // Events triggered by sbgnviz module
