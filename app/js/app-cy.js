@@ -136,9 +136,6 @@ module.exports = function () {
           'opacity': function (ele) {
             return ele.css('opacity');
           }
-        },
-        hidden: {
-          "display": "none"
         }
       },
       edge: {
@@ -149,9 +146,6 @@ module.exports = function () {
           'opacity': function (ele) {
             return ele.css('opacity');
           }
-        },
-        hidden: {
-          "display": "none"
         }
       }
     });
