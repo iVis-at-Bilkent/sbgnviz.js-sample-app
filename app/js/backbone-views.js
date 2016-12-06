@@ -255,6 +255,8 @@ var LayoutPropertiesView = Backbone.View.extend({
       self.currentLayoutProperties.gravityRange = Number(document.getElementById("gravity-range").value);
       self.currentLayoutProperties.tilingPaddingVertical = Number(document.getElementById("tiling-padding-vertical").value);
       self.currentLayoutProperties.tilingPaddingHorizontal = Number(document.getElementById("tiling-padding-horizontal").value);
+    
+      $(self.el).modal('toggle');
     });
 
     $(document).off("click", "#default-layout").on("click", "#default-layout", function (evt) {
@@ -309,6 +311,8 @@ var GeneralPropertiesView = Backbone.View.extend({
 
       sbgnviz.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
       cy.style().update();
+      
+      $(self.el).modal('toggle');
     });
 
     $(document).off("click", "#default-sbgn").on("click", "#default-sbgn", function (evt) {
