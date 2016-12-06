@@ -588,11 +588,11 @@
         </script>
         
         <script type="text/template" id="query-pathsbetween-template">
-            <div class="modal-dialog" style="width: 840px;">
+            <div class="modal-dialog" style="width: 500px;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Paths Between Query Parameters</h4>
+                        <h4 class="modal-title">Paths Between Query</h4>
                     </div>
                     <div class="modal-body">
                         <table class="table-condensed layout-table">
@@ -605,7 +605,7 @@
                         <tr>
                         <td>
                         <span class="add-on layout-text"> Gene Symbols: </span><br>
-                        <textarea id="query-pathsbetween-gene-symbols" rows="4" cols="86"><%= geneSymbols %></textarea>
+                        <textarea id="query-pathsbetween-gene-symbols" rows="4" cols="86" style="width: 206px;"><%= geneSymbols %></textarea>
                         </td>
 
                         <td>
@@ -613,7 +613,7 @@
                         <caption style="text-align: left;">Stop Distance</caption>
                         <tr>
                         <td colspan=2>Length limit</td>
-                        <td style="padding: 10px;"><input id="query-pathsbetween-length-limit" type="text" min="1" class="input-small layout-text integer-input" value= <%= lengthLimit %> > </td>
+                        <td style="padding: 10px;"><input id="query-pathsbetween-length-limit" type="text" min="1" class="input-small layout-text integer-input" style="width: 90px;" value= <%= lengthLimit %> > </td>
                         </tr>
                         </table>
                         </td>

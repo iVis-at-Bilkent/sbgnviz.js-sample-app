@@ -365,11 +365,18 @@ var PathsBetweenQueryView = Backbone.View.extend({
       self.currentQueryParameters.geneSymbols = document.getElementById("query-pathsbetween-gene-symbols").value;
       self.currentQueryParameters.lengthLimit = Number(document.getElementById("query-pathsbetween-length-limit").value);
 
+      if (self.currentQueryParameters.geneSymbols.length === 0) {
+        document.getElementById("query-pathsbetween-gene-symbols").focus();
+        return;
+      }
+
       var queryURL = "http://www.pathwaycommons.org/pc2/graph?format=SBGN&kind=PATHSBETWEEN&limit="
               + self.currentQueryParameters.lengthLimit;
+      
       var sources = "";
       var filename = "";
       var geneSymbolsArray = self.currentQueryParameters.geneSymbols.replace("\n", " ").replace("\t", " ").split(" ");
+      
       for (var i = 0; i < geneSymbolsArray.length; i++) {
         var currentGeneSymbol = geneSymbolsArray[i];
         if (currentGeneSymbol.length == 0 || currentGeneSymbol == ' '
