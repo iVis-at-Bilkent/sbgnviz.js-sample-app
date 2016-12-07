@@ -378,9 +378,11 @@ menu:not([title]):before{
     color: #ffffff !important;
 }
 
-.modal-footer {
-    background-color: #0B9BCD !important;
-    color: #ffffff !important;
+.modal-footer button {
+    border: #0B9BCD !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-radius: calc !important;
 }
 
 .modal-content {
