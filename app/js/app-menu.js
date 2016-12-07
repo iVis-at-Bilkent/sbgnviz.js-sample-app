@@ -98,11 +98,11 @@ module.exports = function () {
     }
 
     $("#hide-selected, #hide-selected-icon").click(function(e) {
-      sbgnviz.hideEles(cy.elements(":selected"));
+      sbgnviz.hideNodesSmart(cy.nodes(":selected"));
     });
     
     $("#show-selected, #show-selected-icon").click(function(e) {
-      sbgnviz.showEles(cy.elements(":selected"));
+      sbgnviz.showNodesSmart(cy.nodes(":selected"));
     });
 
     $("#show-all").click(function (e) {
@@ -110,11 +110,11 @@ module.exports = function () {
     });
 
     $("#delete-selected-smart, #delete-selected-smart-icon").click(function (e) {
-      sbgnviz.deleteElesSmart(cy.elements(':selected'));
+      sbgnviz.deleteNodesSmart(cy.nodes(':selected'));
     });
 
     $("#highlight-neighbors-of-selected, #highlight-neighbors-of-selected-icon").click(function (e) {
-      sbgnviz.highlightNeighbours(cy.elements(':selected'));
+      sbgnviz.highlightNeighbours(cy.nodes(':selected'));
     });
 
     $("#search-by-label-icon").click(function (e) {
@@ -133,7 +133,7 @@ module.exports = function () {
     });
 
     $("#highlight-processes-of-selected").click(function (e) {
-      sbgnviz.highlightProcesses(cy.elements(':selected'));
+      sbgnviz.highlightProcesses(cy.nodes(':selected'));
     });
 
     $("#remove-highlights, #remove-highlights-icon").click(function (e) {
