@@ -1,14 +1,16 @@
-# A Sample Application for SBGNViz version 3.0: Cytoscape.js based visualization tool for process description diagrams in SBGN-ML
+# A Sample Application for SBGNViz
 
-SBGNViz is a web application based on [cytoscape.js](http://cytoscape.github.io/cytoscape.js/) to visualize pathway models represented by [SBGN Process Description Notation](http://www.sbgn.org/Image:Refcard-PD.png). It accepts the pathway models represented in [SBGN-ML](http://sourceforge.net/apps/mediawiki/libsbgn/index.php?title=Exchange_Format) format.
-
-SBGNViz is built by extending an open-source javascript graph theory library for analysis and visualisation, [cytoscape.js](http://cytoscape.github.io/cytoscape.js/), to support the [SBGN Process Description Notation](http://www.sbgn.org/Image:Refcard-PD.png).
+This is a sample application for the [web based library named SBGNViz](https://github.com/iVis-at-Bilkent/sbgnviz.js) developed for visualization of process description maps in SBGN.
 
 ## Software
 
-<font color="#B3A31D">**This sample application is deployed [here (master branch)](http://cs.bilkent.edu.tr/~ivis/SBGNViz_sample_app/).**</font>
+SBGNViz and this sample application are distributed under [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html).
 
-SBGNViz is distributed under [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html). SBGNViz works on every platform that have Javascript support including mobile devices.
+**A deployment of this sample application** can be found [here](http://cs.bilkent.edu.tr/~ivis/SBGNViz_sample_app/). SBGNViz works on every platform that have Javascript support including mobile devices.
+
+Please cite the following when you use SBGNViz.js:
+
+M. Sari, I. Bahceci, U. Dogrusoz, S.O. Sumer, B.A. Aksoy, O. Babur, E. Demir, "[SBGNViz: a tool for visualization and complexity management of SBGN process description maps](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0128985)", PLoS ONE, 10(6), e0128985, 2015.
 
 #### Running a Local Instance
 In order to deploy and run a local instance of the tool, please follow the steps below:
@@ -120,10 +122,6 @@ Below are some sample screenshots from SBGNViz.js sample application, illustrati
 
 ## Credits
 
-Please cite the following when you use SBGNViz.js:
-
-M. Sari, I. Bahceci, U. Dogrusoz, S.O. Sumer, B.A. Aksoy, O. Babur, E. Demir, "[SBGNViz: a tool for visualization and complexity management of SBGN process description maps](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0128985)", PLoS ONE, 10(6), e0128985, 2015.
-
 Icons made by [Freepik](http://www.freepik.com), 
 [Daniel Bruce](http://www.flaticon.com/authors/daniel-bruce), 
 [TutsPlus](http://www.flaticon.com/authors/tutsplus),
@@ -138,7 +136,7 @@ Thanks to JetBrains for an [Open Source License](https://www.jetbrains.com/buy/o
 
 ## Team
 
-  * Metin Can Siper, Selim Firat Yilmaz, Ugur Dogrusoz, Alper Karacelik of [i-Vis at Bilkent University](http://www.cs.bilkent.edu.tr/~ivis)
+  * [Metin Can Siper](https://github.com/metincansiper), [Selim Firat Yilmaz](https://github.com/mrsfy), [Ugur Dogrusoz](https://github.com/ugurdogrusoz), and [Alper Karacelik](https://github.com/alperkaracelik) of [i-Vis at Bilkent University](http://www.cs.bilkent.edu.tr/~ivis)
 
 #### Alumni
 
