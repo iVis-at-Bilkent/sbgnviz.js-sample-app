@@ -5,7 +5,7 @@ body {
     padding: 0px; 
 }
 
-.open > .dropdown-menu {
+.sbgn-nav-menu .open > .dropdown-menu {
     animation-name: slidenavAnimation;
     animation-duration:.3s;
     animation-iteration-count: 1;
@@ -41,7 +41,7 @@ body {
     }
 }
 
-.nav-menu {
+.sbgn-nav-menu {
     border: 1px solid #ddd;
     border-radius: 0.25em;
     margin: auto;
@@ -49,21 +49,21 @@ body {
     width: 1000px;
 }
 
-.dropdown .dropdown-menu{
+.sbgn-nav-menu .dropdown .dropdown-menu{
     z-index:3000;
 }
 
-.navbar .nav li.dropdown.open > .dropdown-toggle,
-.navbar .nav li.dropdown.active > .dropdown-toggle,
-.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+.sbgn-nav-menu .navbar .nav li.dropdown.open > .dropdown-toggle,
+.sbgn-nav-menu .navbar .nav li.dropdown.active > .dropdown-toggle,
+.sbgn-nav-menu .navbar .nav li.dropdown.open.active > .dropdown-toggle {
     color: #555555;
     background-color: #0B9BCD;
     text-shadow: none !important;
 }
 
-.dropdown-menu li > a:hover,
-.dropdown-menu li > a:focus,
-.dropdown-submenu:hover > a {
+.sbgn-nav-menu .dropdown-menu li > a:hover,
+.sbgn-nav-menu .dropdown-menu li > a:focus,
+.sbgn-nav-menu .dropdown-submenu:hover > a {
     color: #ffffff;
     text-decoration: none;
     background-color: #0B9BCD;
@@ -72,8 +72,8 @@ body {
     filter: none;
 }
 
-.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover {
+.sbgn-nav-menu .dropdown-menu .active > a,
+.sbgn-nav-menu .dropdown-menu .active > a:hover {
     color: #ffffff;
     text-decoration: none;
     background-color: #0B9BCD;
@@ -81,8 +81,8 @@ body {
     filter: none;
 }
 
-/*Adjust font-size of a tags inside .nav-menu*/
-.nav-menu a {
+/*Adjust font-size of a tags inside .sbgn-nav-menu*/
+.sbgn-nav-menu a {
     font-size: 12px;
 }
 
@@ -137,7 +137,7 @@ body {
 
 /*bootstrap.css is no more supporting dropdown submenus handle it here end*/
 
-.right-caret {
+.sbgn-nav-menu .right-caret {
     border-bottom: 4px solid transparent;
     border-top: 4px solid transparent;
     border-left: 4px solid #000000;
@@ -247,7 +247,7 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.14902) !important;
 }
 
-.navbar-nav > li > a {
+.sbgn-nav-menu .navbar-nav > li > a {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
 }
@@ -393,18 +393,18 @@ menu:not([title]):before{
     padding-top: 2px !important;
 }
 
-.modal-header {
+.sbgn-modal-dialog .modal-header {
     background-color: #0B9BCD !important;
     color: #ffffff !important;
 }
 
-.modal-footer button {
+.sbgn-modal-dialog .modal-footer button {
     border: #0B9BCD !important;
     border-style: solid !important;
     border-width: 1px !important;
     border-radius: calc !important;
 }
 
-.modal-content {
+.sbgn-modal-dialog .modal-content {
     overflow:hidden !important;
 }
