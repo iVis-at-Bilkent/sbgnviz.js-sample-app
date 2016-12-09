@@ -227,6 +227,26 @@ body {
     min-height: 0px;
 }
 
+@media (max-width: 767px) {
+    .sbgn-nav-bar {
+        max-height: 42px;
+    }
+    
+    .sbgn-nav-bar .navbar-nav {
+        margin: 0px;
+    }
+}
+
+.sbgn-nav-bar li.dropdown {
+    float: left;
+}
+
+.sbgn-nav-bar .dropdown-menu {
+    position: absolute !important;
+    background-color: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.14902) !important;
+}
+
 .navbar-nav > li > a {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
