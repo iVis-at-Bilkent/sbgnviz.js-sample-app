@@ -84,7 +84,7 @@ module.exports = function () {
         title: 'Expand', // Title of menu item
         // Filters the elements to have this menu item on cxttap
         // If the selector is not truthy no elements will have this menu item on cxttap
-        selector: 'node[expanded-collapsed="collapsed"]',
+        selector: 'node.cy-expand-collapse-collapsed-node',
         onClickFunction: function (event) { // The function to be executed on click
           cy.undoRedo().do("expand", {
             nodes: event.cyTarget
@@ -94,7 +94,7 @@ module.exports = function () {
       {
         id: 'ctx-menu-collapse',
         title: 'Collapse',
-        selector: 'node[expanded-collapsed!="collapsed"][class="complex"],[expanded-collapsed!="collapsed"][class="compartment"]',
+        selector: 'node:parent',
         onClickFunction: function (event) {
           cy.undoRedo().do("collapse", {
             nodes: event.cyTarget
