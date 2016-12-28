@@ -32,7 +32,7 @@
     "cytoscape-expand-collapse": "^2.0.0",
     "cytoscape-clipboard": "^1.0.3",
     "cytoscape-edge-bend-editing": "^1.4.0",
-    "cytoscape-view-utilities": "^1.0.6",
+    "cytoscape-view-utilities": "^2.0.0",
     "cytoscape-context-menus": "^2.0.3",
     "sbgnviz": "~3.2.0"
   },
