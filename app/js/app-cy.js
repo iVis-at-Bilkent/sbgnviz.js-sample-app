@@ -154,10 +154,10 @@ module.exports = function () {
       fitPadding: 10,
       fitSelector: ':visible',
       animateOnFit: function () {
-        return appUtilities.getGeneralProperties().animateOnDrawingChanges;
+        return appUtilities.currentGeneralProperties.animateOnDrawingChanges;
       },
       animateOnZoom: function () {
-        return appUtilities.getGeneralProperties().animateOnDrawingChanges;
+        return appUtilities.currentGeneralProperties.animateOnDrawingChanges;
       }
     });
 

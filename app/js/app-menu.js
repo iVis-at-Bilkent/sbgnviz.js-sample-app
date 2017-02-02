@@ -186,9 +186,9 @@ module.exports = function () {
       // If 'animate-on-drawing-changes' is false then animate option must be 'end' instead of false
       // If it is 'during' use it as is 
       var preferences = {
-        animate: appUtilities.getGeneralProperties().animateOnDrawingChanges ? 'end' : false
+        animate: appUtilities.currentGeneralProperties.animateOnDrawingChanges ? 'end' : false
       };
-      if (appUtilities.getLayoutProperties().animate == 'during') {
+      if (appUtilities.currentLayoutProperties.animate == 'during') {
         delete preferences.animate;
       }
       layoutPropertiesView.applyLayout(preferences);
