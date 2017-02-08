@@ -11,6 +11,18 @@ module.exports = function () {
   function loadSample(filename) {
     return sbgnviz.loadSample(filename, 'app/samples/');
   }
+  
+  // TODO consider using a library for keyboard events
+  $(document).keydown(function (e) {
+    if ( ( e.ctrlKey || e.metaKey ) && e.target.nodeName === 'BODY') {
+      if (e.which === 90) { // ctrl + z
+        cy.undoRedo().undo();
+      }
+      else if (e.which === 89) { // ctrl + y
+        cy.undoRedo().redo();
+      }
+    }
+  });
 
   $(document).ready(function ()
   {

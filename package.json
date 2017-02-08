@@ -34,7 +34,7 @@
     "cytoscape-edge-bend-editing": "^1.4.0",
     "cytoscape-view-utilities": "^2.0.0",
     "cytoscape-context-menus": "^2.0.3",
-    "sbgnviz": "~3.3.0"
+    "sbgnviz": "~3.4.0"
   },
   "devDependencies": {
     "express": "4.14.0",
