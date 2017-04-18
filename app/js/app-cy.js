@@ -51,7 +51,7 @@ module.exports = function () {
         selector: 'node, edge',
         onClickFunction: function (event) {
           cy.undoRedo().do("deleteElesSimple", {
-            eles: event.cyTarget
+            eles: event.target || event.cyTarget
           });
         }
       },
@@ -87,7 +87,7 @@ module.exports = function () {
         selector: 'node.cy-expand-collapse-collapsed-node',
         onClickFunction: function (event) { // The function to be executed on click
           cy.undoRedo().do("expand", {
-            nodes: event.cyTarget
+            nodes: event.target || event.cyTarget
           });
         }
       },
@@ -97,7 +97,7 @@ module.exports = function () {
         selector: 'node:parent',
         onClickFunction: function (event) {
           cy.undoRedo().do("collapse", {
-            nodes: event.cyTarget
+            nodes: event.target || event.cyTarget
           });
         }
       },
@@ -114,7 +114,7 @@ module.exports = function () {
         title: 'BioGene Properties',
         selector: 'node[class="macromolecule"],[class="nucleic acid feature"],[class="unspecified entity"]',
         onClickFunction: function (event) {
-          bioGeneQtip(event.cyTarget);
+          bioGeneQtip(event.target || event.cyTarget);
         }
       }
     ]);
