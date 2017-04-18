@@ -26,7 +26,7 @@
     "filesaverjs": "~0.2.2",
     "backbone": "1.3.3",
     "underscore": "1.8.3",
-    "cytoscape": "iVis-at-Bilkent/cytoscape.js#unstable",
+    "cytoscape": "iVis-at-Bilkent/cytoscape.js#9f60054f98bbaa50c31ca0cf4dab455292e00a57",
     "cytoscape-cose-bilkent": "^1.3.8",
     "cytoscape-undo-redo": "^1.2.1",
     "cytoscape-expand-collapse": "^2.0.0",
