@@ -279,7 +279,8 @@ var GeneralPropertiesView = Backbone.View.extend({
       appUtilities.currentGeneralProperties.animateOnDrawingChanges =
               document.getElementById("animate-on-drawing-changes").checked;
 
-      sbgnviz.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
+      var compoundPaddingValue = sbgnviz.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
+      appUtilities.currentLayoutProperties.paddingCompound = appUtilities.defaultLayoutProperties.paddingCompound + (compoundPaddingValue - 5);
       cy.style().update();
       
       $(self.el).modal('toggle');
