@@ -69,14 +69,14 @@ module.exports = function () {
       }
     });
 
-    $("#node-legend").click(function (e) {
+    $("#PD-legend").click(function (e) {
       e.preventDefault();
-      $("#node_legend_modal").modal('show');
+      $("#PD_legend_modal").modal('show');
     });
 
-    $("#edge-legend").click(function (e) {
+    $("#AF-legend").click(function (e) {
       e.preventDefault();
-      $("#edge_legend_modal").modal('show');
+      $("#AF_legend_modal").modal('show');
     });
 
     $("#quick-help").click(function (e) {
