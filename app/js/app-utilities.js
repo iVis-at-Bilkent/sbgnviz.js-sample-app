@@ -1,4 +1,4 @@
-var jQuery = $ = require('jQuery');
+var jQuery = $ = require('jquery');
 
 var appUtilities = {};
 
