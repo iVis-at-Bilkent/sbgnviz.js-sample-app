@@ -39,7 +39,7 @@ module.exports = function () {
     contextMenus.appendMenuItems([
       {
         id: 'ctx-menu-general-properties',
-        title: 'Properties...',
+        content: 'Properties...',
         coreAsWell: true,
         onClickFunction: function (event) {
           $("#general-properties").trigger("click");
@@ -47,7 +47,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-delete',
-        title: 'Delete',
+        content: 'Delete',
         selector: 'node, edge',
         onClickFunction: function (event) {
           cy.undoRedo().do("deleteElesSimple", {
@@ -57,7 +57,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-delete-selected',
-        title: 'Delete Selected',
+        content: 'Delete Selected',
         onClickFunction: function () {
           $("#delete-selected-simple").trigger('click');
         },
@@ -65,7 +65,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-hide-selected',
-        title: 'Hide Selected',
+        content: 'Hide Selected',
         onClickFunction: function () {
           $("#hide-selected").trigger('click');
         },
@@ -73,7 +73,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-show-all',
-        title: 'Show All',
+        content: 'Show All',
         onClickFunction: function () {
           $("#show-all").trigger('click');
         },
@@ -81,7 +81,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-expand', // ID of menu item
-        title: 'Expand', // Title of menu item
+        content: 'Expand', // Title of menu item
         // Filters the elements to have this menu item on cxttap
         // If the selector is not truthy no elements will have this menu item on cxttap
         selector: 'node.cy-expand-collapse-collapsed-node',
@@ -93,7 +93,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-collapse',
-        title: 'Collapse',
+        content: 'Collapse',
         selector: 'node:parent',
         onClickFunction: function (event) {
           cy.undoRedo().do("collapse", {
@@ -103,7 +103,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-perform-layout',
-        title: 'Perform Layout',
+        content: 'Perform Layout',
         onClickFunction: function () {
           $("#perform-layout").trigger('click');
         },
@@ -111,7 +111,7 @@ module.exports = function () {
       },
       {
         id: 'ctx-menu-biogene-properties',
-        title: 'BioGene Properties',
+        content: 'BioGene Properties',
         selector: 'node[class="macromolecule"],[class="nucleic acid feature"],[class="unspecified entity"]',
         onClickFunction: function (event) {
           bioGeneQtip(event.target || event.cyTarget);
@@ -150,10 +150,10 @@ module.exports = function () {
       },
       neighbor: function(node){ //select and return process-based neighbors
         node.select();
-        var neighbors = sbgnviz.elementUtilities.extendNodeList();   
+        var neighbors = sbgnviz.elementUtilities.extendNodeList();
         return neighbors;
       },
-      neighborSelectTime: 1000 //ms 
+      neighborSelectTime: 1000 //ms
     });
 
     var panProps = ({
