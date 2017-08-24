@@ -1,4 +1,4 @@
-var jQuery = $ = require('jQuery');
+var jQuery = $ = require('jquery');
 var BackboneViews = require('./backbone-views');
 var appUtilities = require('./app-utilities');
 
@@ -11,6 +11,18 @@ module.exports = function () {
   function loadSample(filename) {
     return sbgnviz.loadSample(filename, 'app/samples/');
   }
+  
+  // TODO consider using a library for keyboard events
+  $(document).keydown(function (e) {
+    if ( ( e.ctrlKey || e.metaKey ) && e.target.nodeName === 'BODY') {
+      if (e.which === 90) { // ctrl + z
+        cy.undoRedo().undo();
+      }
+      else if (e.which === 89) { // ctrl + y
+        cy.undoRedo().redo();
+      }
+    }
+  });
 
   $(document).ready(function ()
   {
@@ -30,7 +42,7 @@ module.exports = function () {
     // time out before loading the default sample. 
     // TODO search for a better way.
     setTimeout(function(){
-      loadSample('neuronal_muscle_signalling.xml');
+      loadSample('neuronal_muscle_signaling.xml');
     }, 100);
   });
   
@@ -57,14 +69,14 @@ module.exports = function () {
       }
     });
 
-    $("#node-legend").click(function (e) {
+    $("#PD-legend").click(function (e) {
       e.preventDefault();
-      $("#node_legend_modal").modal('show');
+      $("#PD_legend_modal").modal('show');
     });
 
-    $("#edge-legend").click(function (e) {
+    $("#AF-legend").click(function (e) {
       e.preventDefault();
-      $("#edge_legend_modal").modal('show');
+      $("#AF_legend_modal").modal('show');
     });
 
     $("#quick-help").click(function (e) {
@@ -78,15 +90,19 @@ module.exports = function () {
     });
 
     var selectorToSampleFileName = {
-      "#load-sample1" : 'neuronal_muscle_signalling.xml',
-      "#load-sample2" : 'CaM-CaMK_dependent_signaling_to_the_nucleus.xml',
-      "#load-sample3" : 'activated_stat1alpha_induction_of_the_irf1_gene.xml',
-      "#load-sample4" : 'glycolysis.xml',
-      "#load-sample5" : 'mapk_cascade.xml',
-      "#load-sample6" : 'polyq_proteins_interference.xml',
-      "#load-sample7" : 'insulin-like_growth_factor_signaling.xml',
-      "#load-sample8" : 'atm_mediated_phosphorylation_of_repair_proteins.xml',
-      "#load-sample9" : 'vitamins_b6_activation_to_pyridoxal_phosphate.xml'
+      "#load-sample1" : 'neuronal_muscle_signaling.xml',
+      "#load-sample2" : 'cam-camk_dependent_signaling_to_the_nucleus.xml',
+      "#load-sample3" : 'atm_mediated_phosphorylation_of_repair_proteins.xml',
+      "#load-sample4" : 'activated_stat1alpha_induction_of_the_irf1_gene.xml',
+      "#load-sample5" : 'vitamins_b6_activation_to_pyridoxal_phosphate.xml',
+      "#load-sample6" : 'insulin-like_growth_factor_signaling.xml',
+      "#load-sample7" : 'polyq_proteins_interference.xml',
+      "#load-sample8" : 'glycolysis.xml',
+      "#load-sample9" : 'mapk_cascade.xml',
+      "#load-sample10" : 'transforming_growth_factor_beta_signaling.xml',
+      "#load-sample11" : 'repressilator.xml',
+      "#load-sample12" : 'epidermal_growth_factor_receptor.xml',
+      "#load-sample13" : 'regulation_of_tgfbeta-induced_metastasis.xml'
     };
 
     for ( var selector in selectorToSampleFileName ) {
@@ -130,6 +146,10 @@ module.exports = function () {
 
     $("#highlight-search-menu-item").click(function (e) {
       $("#search-by-label-text-box").focus();
+    });
+    
+    $("#highlight-selected").click(function (e) {
+      sbgnviz.highlightSelected(cy.elements(':selected'));
     });
 
     $("#highlight-processes-of-selected").click(function (e) {
@@ -186,9 +206,9 @@ module.exports = function () {
       // If 'animate-on-drawing-changes' is false then animate option must be 'end' instead of false
       // If it is 'during' use it as is 
       var preferences = {
-        animate: appUtilities.getGeneralProperties().animateOnDrawingChanges ? 'end' : false
+        animate: appUtilities.currentGeneralProperties.animateOnDrawingChanges ? 'end' : false
       };
-      if (appUtilities.getLayoutProperties().animate == 'during') {
+      if (appUtilities.currentLayoutProperties.animate == 'during') {
         delete preferences.animate;
       }
       layoutPropertiesView.applyLayout(preferences);
@@ -208,6 +228,10 @@ module.exports = function () {
 
     $("#save-as-jpg").click(function (evt) {
       sbgnviz.saveAsJpg(); // the default filename is 'network.jpg'
+    });
+
+    $("#save-as-svg").click(function (evt) {
+      sbgnviz.saveAsSvg(); // the default filename is 'network.jpg'
     });
 
     //TODO: could simply keep/store original input SBGN-ML data and use it here instead of converting from JSON

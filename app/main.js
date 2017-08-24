@@ -1,6 +1,6 @@
 var sbgnviz = require('sbgnviz');
 var filesaverjs = require('filesaverjs');
-window.jQuery = window.$ = require('jQuery'); // jQuery should be global because jQuery.qtip extension is not compatible with commonjs
+window.jQuery = window.$ = require('jquery'); // jQuery should be global because jQuery.qtip extension is not compatible with commonjs
 var cytoscape = require('cytoscape');
 
 require('jquery-expander')($);
@@ -44,15 +44,15 @@ sbgnviz({
   imgPath: 'node_modules/sbgnviz/src/img',
   // whether to fit label to nodes
   fitLabelsToNodes: function () {
-    return appUtilities.getGeneralProperties().fitLabelsToNodes;
+    return appUtilities.currentGeneralProperties.fitLabelsToNodes;
   },
   // dynamic label size it may be 'small', 'regular', 'large'
   dynamicLabelSize: function () {
-    return appUtilities.getGeneralProperties().dynamicLabelSize;
+    return appUtilities.currentGeneralProperties.dynamicLabelSize;
   },
   // percentage used to calculate compound paddings
   compoundPadding: function () {
-    return appUtilities.getGeneralProperties().compoundPadding;
+    return appUtilities.currentGeneralProperties.compoundPadding;
   },
   undoable: true
 }, libs);

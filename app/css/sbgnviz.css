@@ -335,6 +335,40 @@ option {
     font-size: 12px;
 }
 
+input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
+    width: auto !important;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    height: auto;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #ffffff;
+}
+
+.sbgn-input-small {
+    width: 50px !important;
+}
+
+.sbgn-input-medium {
+    width: 90px !important;
+}
+
+.sbgn-input-large {
+    width: 110px !important;
+}
+
+input, select, textarea {
+    border-radius: 4px;
+}
+
+input, select {
+    padding-left: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    height: 23px;
+}
+
 #general-properties-template td {
     width: 100%;
 }

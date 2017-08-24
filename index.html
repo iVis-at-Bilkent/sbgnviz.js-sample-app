@@ -28,7 +28,7 @@
                     <ul class="nav navbar-nav navbar-left">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                File 
+                                File
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -40,26 +40,36 @@
                                         <!--<b class="right-caret"></b>-->
                                     </a>
                                     <ul class="dropdown-menu">
+                                        <li><a href="#"><i>PD</i></a></li>
+                                        <li class="divider" style="margin-top: 0"></li>
                                         <li><a href="#" id="load-sample1">Neuronal muscle signaling</a></li>
-                                        <li><a href="#" id="load-sample2">CaM-CaMK dependent signaling to the nucleus</a></li>
-                                        <li><a href="#" id="load-sample3">Activated STAT1alpha induction of the IRF1 gene</a></li>
-                                        <li><a href="#" id="load-sample4">Glycolysis</a></li>
-                                        <li><a href="#" id="load-sample5">MAPK cascade</a></li>
-                                        <li><a href="#" id="load-sample6">PolyQ proteins interference</a></li>
-                                        <li><a href="#" id="load-sample7">Insulin-like Growth Factor (IGF) signalling</a></li>
-                                        <li><a href="#" id="load-sample8">ATM mediated phosphorylation of repair proteins</a></li>
-                                        <li><a href="#" id="load-sample9">Vitamins B6 activation to pyridoxal phosphate</a></li>
+                                        <li><a href="#" id="load-sample2">CaM-CaMK dependent signaling to nucleus</a></li>
+                                        <li><a href="#" id="load-sample3">ATM mediated phosphorylation of repair proteins</a></li>
+                                        <li><a href="#" id="load-sample4">Activated STAT1alpha induction of the IRF1 gene</a></li>
+                                        <li><a href="#" id="load-sample5">Vitamins B6 activation to pyridoxal phosphate</a></li>
+                                        <li><a href="#" id="load-sample6">Insulin-like growth factor (IGF) signaling</a></li>
+                                        <li><a href="#" id="load-sample7">PolyQ proteins interference</a></li>
+                                        <li><a href="#" id="load-sample8">Glycolysis</a></li>
+                                        <li><a href="#" id="load-sample9">MAPK cascade</a></li>
+                                        <li class="divider" style="margin-bottom: 0"></li>
+                                        <li><a href="#"><i>AF</i></a></li>
+                                        <li class="divider" style="margin-top: 0"></li>
+                                        <li><a href="#" id="load-sample10">Transforming growth factor beta (TGFB) signaling</a></li>
+                                        <li><a href="#" id="load-sample11">Repressilator</a></li>
+                                        <li><a href="#" id="load-sample12">Epidermal growth factor receptor</a></li>
+                                        <li><a href="#" id="load-sample13">Regulation of TGF-beta induced metastasis</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" id="save-as-sbgnml">Save...</a></li>
                                 <li class="dropdown-submenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        Save as Image 
+                                        Save as Image
                                         <!--<b class="right-caret"></b>-->
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#" id="save-as-png">PNG</a></li>
                                         <li><a href="#" id="save-as-jpg">JPG</a></li>
+                                        <li><a href="#" id="save-as-svg">SVG</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" id="general-properties">Properties...</a></li>
@@ -68,7 +78,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Edit 
+                                Edit
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -84,7 +94,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                View 
+                                View
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -116,14 +126,15 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Highlight 
+                                Highlight
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" id="highlight-search-menu-item">Search ...</a></li>
+                                <li><a href="#" id="highlight-selected">Selected</a></li>
                                 <li><a href="#" id="highlight-neighbors-of-selected">Neighbors of Selected</a></li>
                                 <li><a href="#" id="highlight-processes-of-selected">Processes of Selected</a></li>
                                 <li><a href="#" id="remove-highlights">Remove Highlights</a></li>
@@ -132,7 +143,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Layout 
+                                Layout
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -140,10 +151,10 @@
                                 <li><a href="#" id="layout-properties">Layout Properties...</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Query 
+                                Query
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -161,19 +172,19 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Legends 
+                                Legend
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" id="node-legend">Node Legend</a></li>
-                                <li><a href="#" id="edge-legend">Interaction Legend</a></li>
+                                <li><a href="#" id="PD-legend">Process Description</a></li>
+                                <li><a href="#" id="AF-legend">Activity Flow</a></li>
                             </ul>
                         </li>
 
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Help 
+                                Help
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -191,14 +202,14 @@
             <table width="100%" height="100%" align="center" valign="center">
                 <tr>
                 <div class="inside-menu">
-                <img id="load-file-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/load.png" title="Load: Load an SBGN-PD map from SBGN-ML file">
-                <img id="save-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/save.png" title="Save: Save current SBGN-PD map to an SBGN-ML file">
-                <img id="properties-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/properties.png" title="Properties: Modify general properties of current SBGN-PD map" >
+                <img id="load-file-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/load.png" title="Load: Load an SBGN map from SBGN-ML file">
+                <img id="save-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/save.png" title="Save: Save current SBGN map to an SBGN-ML file">
+                <img id="properties-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/properties.png" title="Properties: Modify general properties of current SBGN map" >
                 </div>
-                
+
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
-                
+
                 <img id="delete-selected-simple-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/deletesimple.png" title="Delete Selected Simple: Delete selected nodes and interactions" >
                 <img id="delete-selected-smart-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/deletesmart.png" title="Delete Selected Smart: Delete selected nodes and any processes they are involved in" >
 
@@ -207,7 +218,7 @@
                 <img id="redo-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/redo.png" title="Redo: Redo the last undone operation" >
 
                 </div>
-                
+
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
                 <img id="hide-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/hideselected.png" title="Hide Selected: Hide selected nodes and any processes they are involved in" >
@@ -216,30 +227,30 @@
                 <div class="menu-break-small sbgn-toolbar-element">&nbsp</div>
                 <img id="collapse-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/collapseselected.png" title="Collapse Selected: Collapse selected compound node to hide its members" >
                 <img id="expand-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/expandselected.png" title="Expand Selected: Expand selected collapsed node to show its members" >
-                    
+
                 </div>
-                
+
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
                 <img id="search-by-label-icon" class="sbgn-toolbar-element" src="app/img/search.png" title="Search: Search and find (case insensitive) all nodes with specified label text, selecting them and highlighting them along with their processes" >
                 <input id="search-by-label-text-box" class="sbgn-toolbar-element" type="label">
-                <img id="highlight-neighbors-of-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/highlightneighborsofselected.png" title="Highlight Neighbors of Selected: Highlight selected nodes and their neighbors by ghosting remaining nodes" >
-                <img id="remove-highlights-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/removehighlights.png" title="Remove Highlights: Remove any highlights" >
+                <img id="highlight-neighbors-of-selected-icon" width="24px" height="24px" class="sbgn-toolbar-element" src="app/img/toolbar-icons/highlight-selected.svg" title="Highlight Neighbors of Selected: Highlight selected nodes and their neighbors by ghosting remaining nodes" >
+                <img id="remove-highlights-icon" width="24px" height="24px" class="sbgn-toolbar-element" src="app/img/toolbar-icons/remove-highlights.svg" title="Remove Highlights: Remove any highlights" >
                 </div>
-                
+
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
                 <img id="perform-layout-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layout-cose.png" title="Perform Layout: Perform a force-directed layout of current map, maintaining compound structures" >
                 <img id="layout-properties-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layoutproperties.png" title="Layout Properties: Modify parameters used during layout" >
                 </div>
                 </tr>
-                
+
             </table>
         </div>
-    
+
         <div id="sbgn-network-container">
         </div>
-    
+
         <div id="layout-properties-table" tabindex="-1" class="modal fade" role="dialog">
             <!-- sbgn layout table will be shown here -->
         </div>
@@ -250,36 +261,36 @@
 
         <div id="biogene-container" style="display: none">
         </div>
-        
+
         <div id="query-pathsbetween-table" tabindex="-1" class="modal fade" role="dialog">
             <!-- paths between query table will be shown here-->
         </div>
 
         <div id="box">
         </div>
-      
+
 
         <!-- templates -->
-        <div id='node_legend_modal' class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog sbgn-modal-dialog" style="width: 504px; height: 325px;">
+        <div id='PD_legend_modal' class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog sbgn-modal-dialog" style="width: 540px;">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="sbgn-frame">
-                        <h2 class="sbgn-text">Node Legend</h2>
-                        <img src="app/img/node_legend_sbgn.png" alt="" class="centered img-responsive sbgn-legend">
+                        <h2 class="sbgn-text">Process Description</h2>
+                        <img src="app/img/pd-legend.svg" alt="" class="centered img-responsive sbgn-legend">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id='edge_legend_modal' class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog sbgn-modal-dialog" style="width: 325px; height: 285px;">
+        <div id='AF_legend_modal' class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog sbgn-modal-dialog" style="width: 600px;">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="sbgn-frame">
-                        <h2 class="sbgn-text">Interaction Legend</h2>
-                        <img src="app/img/interaction_legend_sbgn.png" alt="" class="centered img-responsive sbgn-legend">
+                        <h2 class="sbgn-text">Activity Flow</h2>
+                        <img src="app/img/af-legend.svg" alt="" class="centered img-responsive sbgn-legend">
                         </div>
                     </div>
                 </div>
@@ -382,7 +393,7 @@
                         <span class="add-on layout-text"> Node Repulsion </span>
                         </td>
                         <td>
-                        <input id="node-repulsion" type="text" min="0" class="input-small layout-text float-input" value= <%= nodeRepulsion %> >
+                        <input id="node-repulsion" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= nodeRepulsion %> >
                         </td>
                         </tr>
 
@@ -391,7 +402,7 @@
                         <span class="add-on layout-text"> Ideal Edge Length </span>
                         </td>
                         <td>
-                        <input id="ideal-edge-length" type="text" min="5" class="input-small layout-text float-input" value= <%= idealEdgeLength %> >
+                        <input id="ideal-edge-length" type="text" min="5" class="sbgn-input-small layout-text float-input" value= <%= idealEdgeLength %> >
                         </td>
                         </tr>
 
@@ -400,7 +411,7 @@
                         <span class="add-on layout-text"> Edge Elasticity </span>
                         </td>
                         <td>
-                        <input id="edge-elasticity" type="text" min="0" class="input-small layout-text float-input" value= <%= edgeElasticity %> >
+                        <input id="edge-elasticity" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= edgeElasticity %> >
                         </td>
                         </tr>
 
@@ -409,7 +420,7 @@
                         <span class="add-on layout-text"> Nesting Factor </span>
                         </td>
                         <td>
-                        <input id="nesting-factor" type="text" min="0" class="input-small layout-text float-input" value= <%= nestingFactor %> >
+                        <input id="nesting-factor" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= nestingFactor %> >
                         </td>
                         </tr>
 
@@ -418,7 +429,7 @@
                         <span class="add-on layout-text"> Gravity </span>
                         </td>
                         <td>
-                        <input id="gravity" type="text" min="0" class="input-small layout-text float-input" value= <%= gravity %> >
+                        <input id="gravity" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= gravity %> >
                         </td>
                         </tr>
 
@@ -427,7 +438,7 @@
                         <span class="add-on layout-text"> Gravity Range   </span>
                         </td>
                         <td>
-                        <input id="gravity-range" type="text" min="0" class="input-small layout-text float-input" value= <%= gravityRange %> >
+                        <input id="gravity-range" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= gravityRange %> >
                         </td>
                         </tr>
 
@@ -436,7 +447,7 @@
                         <span class="add-on layout-text"> Compound Gravity  </span>
                         </td>
                         <td>
-                        <input id="gravity-compound" type="text" min="0" class="input-small layout-text float-input" value= <%= gravityCompound %> >
+                        <input id="gravity-compound" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= gravityCompound %> >
                         </td>
                         </tr>
 
@@ -445,7 +456,7 @@
                         <span class="add-on layout-text"> Compound Gravity Range </span>
                         </td>
                         <td>
-                        <input id="gravity-range-compound" type="text" min="0" class="input-small layout-text float-input" value= <%= gravityRangeCompound %> >
+                        <input id="gravity-range-compound" type="text" min="0" class="sbgn-input-small layout-text float-input" value= <%= gravityRangeCompound %> >
                         </td>
                         </tr>
 
@@ -454,7 +465,7 @@
                         <span class="add-on layout-text"> Number of Iterations </span>
                         </td>
                         <td>
-                        <input id="num-iter" type="text" min="0" class="input-small layout-text integer-input" value= <%= numIter %> >
+                        <input id="num-iter" type="text" min="0" class="sbgn-input-small layout-text integer-input" value= <%= numIter %> >
                         </td>
                         </tr>
 
@@ -463,7 +474,7 @@
                         <span class="add-on layout-text"> Tiling Vertical Padding </span>
                         </td>
                         <td>
-                        <input id="tiling-padding-vertical" type="text" min="0" class="input-small layout-text integer-input" value= <%= tilingPaddingVertical %> >
+                        <input id="tiling-padding-vertical" type="text" min="0" class="sbgn-input-small layout-text integer-input" value= <%= tilingPaddingVertical %> >
                         </td>
                         </tr>
 
@@ -472,7 +483,7 @@
                         <span class="add-on layout-text"> Tiling Horizontal Padding </span>
                         </td>
                         <td>
-                        <input id="tiling-padding-horizontal" type="text" min="0" class="input-small layout-text integer-input" value= <%= tilingPaddingHorizontal %> >
+                        <input id="tiling-padding-horizontal" type="text" min="0" class="sbgn-input-small layout-text integer-input" value= <%= tilingPaddingHorizontal %> >
                         </td>
                         </tr>
 
@@ -482,7 +493,7 @@
                         </td>
 
                         <td>
-                        <input id="tile" type="checkbox" class="input-small layout-text" <% if (tile){ %> checked<%}%>>
+                        <input id="tile" type="checkbox" class="layout-text" <% if (tile){ %> checked<%}%>>
                         </td>
                         </tr>
 
@@ -492,7 +503,7 @@
                         </td>
 
                         <td>
-                        <input id="animate" type="checkbox" class="input-small layout-text" <% if (animate === 'during'){ %> checked<%}%>>
+                        <input id="animate" type="checkbox" class="layout-text" <% if (animate === 'during'){ %> checked<%}%>>
                         </td>
                         </tr>
                         <tr>
@@ -501,9 +512,19 @@
                         </td>
 
                         <td>
-                        <input id="incremental" type="checkbox" class="input-small layout-text" <% if (!randomize){ %> checked<%}%>>
+                        <input id="incremental" type="checkbox" class="layout-text" <% if (!randomize){ %> checked<%}%>>
                         </td>
                         </tr>
+
+                        <tr>
+                        <td>
+                        <span class="add-on layout-text"> Incremental Cooling Factor </span>
+                        </td>
+                        <td>
+                        <input id="incremental-cooling-factor" type="text" min="0" class="sbgn-input-small layout-text integer-input" value= <%= initialEnergyOnIncremental %> >
+                        </td>
+                        </tr>
+
                         </table>
                     </div>
                     <div class="modal-footer" style="text-align: center">
@@ -529,7 +550,7 @@
                         </td>
 
                         <td>
-                        <input id="compound-padding" type="text" class="input-small layout-text integer-input" min="0" max="100" value= <%= compoundPadding %> >
+                        <input id="compound-padding" type="text" class="sbgn-input-small layout-text integer-input" min="0" max="100" value= <%= compoundPadding %> >
                         </td>
                         <td>%</td>
                         </tr>
@@ -540,7 +561,7 @@
                         </td>
 
                         <td>
-                        <select id="dynamic-label-size-select" name="dynamic-label-size">
+                        <select id="dynamic-label-size-select" class="sbgn-input-medium" name="dynamic-label-size">
                         <option id="dynamic-label-size_small" value="small" <% if (dynamicLabelSize == 'small'){ %> selected<%}%> > Small </option>
                         <option id="dynamic-label-size_regular" value="regular" <% if (dynamicLabelSize == 'regular'){ %> selected<%}%> > Regular </option>
                         <option id="dynamic-label-size_large" value="large" <% if (dynamicLabelSize == 'large'){ %> selected<%}%> > Large </option>
@@ -554,7 +575,7 @@
                         </td>
 
                         <td>
-                        <input id="fit-labels-to-nodes" type="checkbox" class="input-small layout-text" <% if (fitLabelsToNodes){ %> checked<%}%>>
+                        <input id="fit-labels-to-nodes" type="checkbox" class="layout-text" <% if (fitLabelsToNodes){ %> checked<%}%>>
                         </td>
                         </tr>
 
@@ -564,7 +585,7 @@
                         </td>
 
                         <td>
-                        <input id="rearrange-after-expand-collapse" type="checkbox" class="input-small layout-text" <% if (rearrangeAfterExpandCollapse){ %> checked<%}%>>
+                        <input id="rearrange-after-expand-collapse" type="checkbox" class="layout-text" <% if (rearrangeAfterExpandCollapse){ %> checked<%}%>>
                         </td>
                         </tr>
 
@@ -574,7 +595,7 @@
                             </td>
 
                             <td>
-                                <input id="animate-on-drawing-changes" type="checkbox" class="input-small layout-text" <% if (animateOnDrawingChanges){ %> checked<%}%>>
+                                <input id="animate-on-drawing-changes" type="checkbox" class="layout-text" <% if (animateOnDrawingChanges){ %> checked<%}%>>
                             </td>
                         </tr>
                         </table>
@@ -586,7 +607,7 @@
                 </div>
             </div>
         </script>
-        
+
         <script type="text/template" id="query-pathsbetween-template">
             <div class="modal-dialog sbgn-modal-dialog" style="width: 500px;">
                 <div class="modal-content">
@@ -613,11 +634,11 @@
                         <caption style="text-align: left;">Stop Distance</caption>
                         <tr>
                         <td colspan=2>Length limit</td>
-                        <td style="padding: 10px;"><input id="query-pathsbetween-length-limit" type="text" min="1" class="input-small layout-text integer-input" style="width: 90px;" value= <%= lengthLimit %> > </td>
+                        <td style="padding: 10px;"><input id="query-pathsbetween-length-limit" type="text" min="1" class="sbgn-input-small layout-text integer-input" style="width: 90px;" value= <%= lengthLimit %> > </td>
                         </tr>
                         </table>
                         </td>
-                
+
                         </tr>
                         </table>
                     </div>
