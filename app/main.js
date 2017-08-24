@@ -26,7 +26,7 @@ cyPanzoom( cytoscape, $ );
 cyQtip( cytoscape, $ );
 cyCoseBilkent( cytoscape );
 cyUndoRedo( cytoscape );
-cyClipboard( cytoscape );
+cyClipboard( cytoscape, $ );
 cyContextMenus( cytoscape, $ );
 cyExpandCollapse( cytoscape, $ );
 cyEdgeBendEditing( cytoscape, $ );
