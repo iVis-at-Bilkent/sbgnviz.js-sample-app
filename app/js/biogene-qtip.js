@@ -47,6 +47,9 @@ var bioGeneQtip = function (node) {
             format: "json",
           };
 
+  // access the singleton cy instance
+  var cy = appUtilities.getCy();
+
   cy.getElementById(node.id()).qtip({
     content: {
       text: function (event, api) {

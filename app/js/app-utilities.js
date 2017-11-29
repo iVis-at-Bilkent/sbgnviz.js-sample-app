@@ -2,6 +2,65 @@ var jQuery = $ = require('jquery');
 
 var appUtilities = {};
 
+// Singleton sbgnviz instance for the application, to be created through appUtilities.createSbgnvizInstance
+appUtilities.sbgnvizInstance = undefined;
+
+// Creates a singleton sbgnviz instance for the application
+appUtilities.createSbgnvizInstance = function (sbgnviz) {
+
+  // If this function is called though an sbgnviz.js instance is already created throw an error
+  if ( this.sbgnvizInstance !== undefined ) {
+    throw "A singleton sbgnviz.js instance is already created";
+  }
+
+  // use self variable instead of this where the scope changes
+  var self = this;
+
+  // options to create sbgnviz instance
+  var options = {
+    networkContainerSelector: '#sbgn-network-container',
+    imgPath: 'node_modules/sbgnviz/src/img',
+    // whether to fit label to nodes
+    fitLabelsToNodes: function () {
+      return self.currentGeneralProperties.fitLabelsToNodes;
+    },
+    // dynamic label size it may be 'small', 'regular', 'large'
+    dynamicLabelSize: function () {
+      return self.currentGeneralProperties.dynamicLabelSize;
+    },
+    // percentage used to calculate compound paddings
+    compoundPadding: function () {
+      return self.currentGeneralProperties.compoundPadding;
+    },
+    undoable: true
+  }
+
+  // create the instance
+  this.sbgnvizInstance = sbgnviz(options);
+
+  // return the new instance
+  return this.sbgnvizInstance;
+};
+
+// Gets the singleton sbgnviz instance of the application
+appUtilities.getSbgnvizInstance = function () {
+
+  // If the sbgnviz.js instance is not created yet throw an error
+  if ( this.sbgnvizInstance === undefined ) {
+    throw "The singleton sbgnviz.js instance is not created yet";
+  }
+
+  // return the new sbgnviz instance
+  return this.sbgnvizInstance;
+};
+
+// Get the cy instance that is associated with the singleton sbgnviz instance created for the application
+appUtilities.getCy = function () {
+
+  return this.getSbgnvizInstance().getCy();
+
+};
+
 appUtilities.defaultLayoutProperties ={
   name: 'cose-bilkent',
   nodeRepulsion: 4500,
@@ -22,7 +81,7 @@ appUtilities.defaultLayoutProperties ={
   gravityRange: 3.8,
   initialEnergyOnIncremental:0.8,
   stop: function () {
-    sbgnviz.endSpinner('layout-spinner');
+    appUtilities.getSbgnvizInstance().endSpinner('layout-spinner');
   }
 };
 
@@ -79,6 +138,10 @@ appUtilities.getExpandCollapseOptions = function () {
     },
     expandCollapseCueSize: 12,
     expandCollapseCuePosition: function (node) {
+
+       // access the singleton cy instance
+       var cy = self.getCy();
+
        var offset = 1, rectSize = 12; // this is the expandCollapseCueSize;
        var size = cy.zoom() < 1 ? rectSize / (2*cy.zoom()) : rectSize / 2;
        var x = node.position('x') - node.width() / 2 - parseFloat(node.css('padding-left'))
@@ -123,7 +186,7 @@ appUtilities.nodeQtipFunction = function (node) {
     return;
   }
 
-  var qtipContent = sbgnviz.getQtipContent(node);
+  var qtipContent = this.getSbgnvizInstance().getQtipContent(node);
 
   if (!qtipContent) {
     return;
@@ -154,6 +217,10 @@ appUtilities.nodeQtipFunction = function (node) {
 };
 
 appUtilities.refreshUndoRedoButtonsStatus = function () {
+
+  // access the singleton cy instance
+  var cy = this.getCy();
+
   var ur = cy.undoRedo();
   if (ur.isUndoStackEmpty()) {
     $("#undo-last-action").parent("li").addClass("disabled");

@@ -39,23 +39,15 @@ libs.filesaverjs = filesaverjs;
 libs.jQuery = jQuery;
 libs.cytoscape = cytoscape;
 
-sbgnviz({
-  networkContainerSelector: '#sbgn-network-container',
-  imgPath: 'node_modules/sbgnviz/src/img',
-  // whether to fit label to nodes
-  fitLabelsToNodes: function () {
-    return appUtilities.currentGeneralProperties.fitLabelsToNodes;
-  },
-  // dynamic label size it may be 'small', 'regular', 'large'
-  dynamicLabelSize: function () {
-    return appUtilities.currentGeneralProperties.dynamicLabelSize;
-  },
-  // percentage used to calculate compound paddings
-  compoundPadding: function () {
-    return appUtilities.currentGeneralProperties.compoundPadding;
-  },
-  undoable: true
-}, libs);
+$(document).ready(function () {
 
-appCy();
-appMenu();
+  // register sbgnviz with the libs
+  sbgnviz.register(libs);
+
+  // create the singleton sbgnviz instance
+  appUtilities.createSbgnvizInstance(sbgnviz);
+
+  appCy();
+  appMenu();
+
+});

@@ -4,12 +4,19 @@ var appUtilities = require('./app-utilities');
 
 // Handle sbgnviz menu functions which are to be triggered on events
 module.exports = function () {
+
+  // access the singleton sbgnviz instance
+  var sbgnvizInstance = appUtilities.getSbgnvizInstance();
+
+  // access the singleton cy instance
+  var cy = appUtilities.getCy();
+
   var dynamicResize = appUtilities.dynamicResize.bind(appUtilities);
   
   var layoutPropertiesView, generalPropertiesView, pathsBetweenQueryView;
 
   function loadSample(filename) {
-    return sbgnviz.loadSample(filename, 'app/samples/');
+    return sbgnvizInstance.loadSample(filename, 'app/samples/');
   }
   
   // TODO consider using a library for keyboard events
@@ -24,28 +31,25 @@ module.exports = function () {
     }
   });
 
-  $(document).ready(function ()
-  {
-    console.log('init the sbgnviz template/page');
-    
-    $(window).on('resize', dynamicResize);
-    dynamicResize();
+  console.log('init the sbgnviz template/page');
 
-    layoutPropertiesView = appUtilities.layoutPropertiesView = new BackboneViews.LayoutPropertiesView({el: '#layout-properties-table'});
-    generalPropertiesView = appUtilities.generalPropertiesView = new BackboneViews.GeneralPropertiesView({el: '#general-properties-table'});
-    pathsBetweenQueryView = appUtilities.pathsBetweenQueryView = new BackboneViews.PathsBetweenQueryView({el: '#query-pathsbetween-table'});
+  $(window).on('resize', dynamicResize);
+  dynamicResize();
 
-    toolbarButtonsAndMenu();
+  layoutPropertiesView = appUtilities.layoutPropertiesView = new BackboneViews.LayoutPropertiesView({el: '#layout-properties-table'});
+  generalPropertiesView = appUtilities.generalPropertiesView = new BackboneViews.GeneralPropertiesView({el: '#general-properties-table'});
+  pathsBetweenQueryView = appUtilities.pathsBetweenQueryView = new BackboneViews.PathsBetweenQueryView({el: '#query-pathsbetween-table'});
 
-    // loadSample is called before the container is resized in dynamicResize function, so we need to wait
-    // wait until it is resized before loading the default sample. As the current solution we set a 100 ms 
-    // time out before loading the default sample. 
-    // TODO search for a better way.
-    setTimeout(function(){
-      loadSample('neuronal_muscle_signaling.xml');
-    }, 100);
-  });
-  
+  toolbarButtonsAndMenu();
+
+  // loadSample is called before the container is resized in dynamicResize function, so we need to wait
+  // wait until it is resized before loading the default sample. As the current solution we set a 100 ms
+  // time out before loading the default sample.
+  // TODO search for a better way.
+  setTimeout(function(){
+    loadSample('neuronal_muscle_signaling.xml');
+  }, 100);
+
   // Events triggered by sbgnviz module
   $(document).on('sbgnvizLoadSample sbgnvizLoadFile', function(event, filename) {
     appUtilities.setFileContent(filename);
@@ -64,7 +68,7 @@ module.exports = function () {
     $("#file-input").change(function () {
       if ($(this).val() != "") {
         var file = this.files[0];
-        sbgnviz.loadSBGNMLFile(file);
+        sbgnvizInstance.loadSBGNMLFile(file);
         $(this).val("");
       }
     });
@@ -114,28 +118,28 @@ module.exports = function () {
     }
 
     $("#hide-selected, #hide-selected-icon").click(function(e) {
-      sbgnviz.hideNodesSmart(cy.nodes(":selected"));
+      sbgnvizInstance.hideNodesSmart(cy.nodes(":selected"));
     });
     
     $("#show-selected, #show-selected-icon").click(function(e) {
-      sbgnviz.showNodesSmart(cy.nodes(":selected"));
+      sbgnvizInstance.showNodesSmart(cy.nodes(":selected"));
     });
 
     $("#show-all").click(function (e) {
-      sbgnviz.showAll();
+      sbgnvizInstance.showAll();
     });
 
     $("#delete-selected-smart, #delete-selected-smart-icon").click(function (e) {
-      sbgnviz.deleteNodesSmart(cy.nodes(':selected'));
+      sbgnvizInstance.deleteNodesSmart(cy.nodes(':selected'));
     });
 
     $("#highlight-neighbors-of-selected, #highlight-neighbors-of-selected-icon").click(function (e) {
-      sbgnviz.highlightNeighbours(cy.nodes(':selected'));
+      sbgnvizInstance.highlightNeighbours(cy.nodes(':selected'));
     });
 
     $("#search-by-label-icon").click(function (e) {
       var label = $("#search-by-label-text-box").val().toLowerCase();
-      sbgnviz.searchByLabel(label);
+      sbgnvizInstance.searchByLabel(label);
     });
 
     $("#search-by-label-text-box").keydown(function (e) {
@@ -149,15 +153,15 @@ module.exports = function () {
     });
     
     $("#highlight-selected").click(function (e) {
-      sbgnviz.highlightSelected(cy.elements(':selected'));
+      sbgnvizInstance.highlightSelected(cy.elements(':selected'));
     });
 
     $("#highlight-processes-of-selected").click(function (e) {
-      sbgnviz.highlightProcesses(cy.nodes(':selected'));
+      sbgnvizInstance.highlightProcesses(cy.nodes(':selected'));
     });
 
     $("#remove-highlights, #remove-highlights-icon").click(function (e) {
-      sbgnviz.removeHighlights();
+      sbgnvizInstance.removeHighlights();
     });
 
     $("#layout-properties, #layout-properties-icon").click(function (e) {
@@ -165,7 +169,7 @@ module.exports = function () {
     });
 
     $("#delete-selected-simple, #delete-selected-simple-icon").click(function (e) {
-      sbgnviz.deleteElesSimple(cy.elements(':selected'));
+      sbgnvizInstance.deleteElesSimple(cy.elements(':selected'));
     });
 
     $("#general-properties, #properties-icon").click(function (e) {
@@ -177,32 +181,32 @@ module.exports = function () {
     });
 
     $("#collapse-selected,#collapse-selected-icon").click(function (e) {
-      sbgnviz.collapseNodes(cy.nodes(":selected"));
+      sbgnvizInstance.collapseNodes(cy.nodes(":selected"));
     });
 
     $("#expand-selected,#expand-selected-icon").click(function (e) {
-      sbgnviz.expandNodes(cy.nodes(":selected"));
+      sbgnvizInstance.expandNodes(cy.nodes(":selected"));
     });
 
     $("#collapse-complexes").click(function (e) {
-      sbgnviz.collapseComplexes();
+      sbgnvizInstance.collapseComplexes();
     });
     $("#expand-complexes").click(function (e) {
-      sbgnviz.expandComplexes();
+      sbgnvizInstance.expandComplexes();
     });
 
     $("#collapse-all").click(function (e) {
-      sbgnviz.collapseAll();
+      sbgnvizInstance.collapseAll();
     });
 
     $("#expand-all").click(function (e) {
-      sbgnviz.expandAll();
+      sbgnvizInstance.expandAll();
     });
 
     $("#perform-layout, #perform-layout-icon").click(function (e) {
       // TODO think whether here is the right place to start the spinner
-      sbgnviz.startSpinner("layout-spinner"); 
-      
+      sbgnvizInstance.startSpinner("layout-spinner");
+
       // If 'animate-on-drawing-changes' is false then animate option must be 'end' instead of false
       // If it is 'during' use it as is 
       var preferences = {
@@ -223,21 +227,21 @@ module.exports = function () {
     });
 
     $("#save-as-png").click(function (evt) {
-      sbgnviz.saveAsPng(); // the default filename is 'network.png'
+      sbgnvizInstance.saveAsPng(); // the default filename is 'network.png'
     });
 
     $("#save-as-jpg").click(function (evt) {
-      sbgnviz.saveAsJpg(); // the default filename is 'network.jpg'
+      sbgnvizInstance.saveAsJpg(); // the default filename is 'network.jpg'
     });
 
     $("#save-as-svg").click(function (evt) {
-      sbgnviz.saveAsSvg(); // the default filename is 'network.jpg'
+      sbgnvizInstance.saveAsSvg(); // the default filename is 'network.jpg'
     });
 
     //TODO: could simply keep/store original input SBGN-ML data and use it here instead of converting from JSON
     $("#save-as-sbgnml, #save-icon").click(function (evt) {
       var filename = document.getElementById('file-name').innerHTML;
-      sbgnviz.saveAsSbgnml(filename);
+      sbgnvizInstance.saveAsSbgnml(filename);
     });
 
     appUtilities.sbgnNetworkContainer.on("click", ".biogene-info .expandable", function (evt) {

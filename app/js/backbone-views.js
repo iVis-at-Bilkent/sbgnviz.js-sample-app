@@ -192,6 +192,10 @@ var LayoutPropertiesView = Backbone.View.extend({
     appUtilities.currentLayoutProperties = _.clone(appUtilities.defaultLayoutProperties);
   },
   applyLayout: function (preferences, notUndoable) {
+
+    // access the singleton sbgnviz instance
+    var sbgnvizInstance = appUtilities.getSbgnvizInstance();
+
     if (preferences === undefined) {
       preferences = {};
     }
@@ -201,12 +205,12 @@ var LayoutPropertiesView = Backbone.View.extend({
     // In dialog properties we keep tiling padding vertical/horizontal percentadges to be displayed
     // in dialog, in layout options we use a function using these values
     options.tilingPaddingVertical = function () {
-      return sbgnviz.calculatePaddings(verticalPaddingPercent);
+      return sbgnvizInstance.calculatePaddings(verticalPaddingPercent);
     };
     options.tilingPaddingHorizontal = function () {
-      return sbgnviz.calculatePaddings(horizontalPaddingPercent);
+      return sbgnvizInstance.calculatePaddings(horizontalPaddingPercent);
     };
-    sbgnviz.performLayout(options, notUndoable);
+    sbgnvizInstance.performLayout(options, notUndoable);
   },
   render: function () {
     var self = this;
@@ -263,6 +267,13 @@ var GeneralPropertiesView = Backbone.View.extend({
     appUtilities.currentGeneralProperties = _.clone(appUtilities.defaultGeneralProperties);
   },
   render: function () {
+
+    // access the singleton sbgnviz instance
+    var sbgnvizInstance = appUtilities.getSbgnvizInstance();
+
+    // access the singleton cy instance
+    var cy = appUtilities.getCy();
+
     var self = this;
     self.template = _.template($("#general-properties-template").html());
     self.template = self.template(appUtilities.currentGeneralProperties);
@@ -279,7 +290,7 @@ var GeneralPropertiesView = Backbone.View.extend({
       appUtilities.currentGeneralProperties.animateOnDrawingChanges =
               document.getElementById("animate-on-drawing-changes").checked;
 
-      sbgnviz.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
+      sbgnvizInstance.refreshPaddings(true); // Refresh paddings and force paddings to be recalculated
       cy.style().update();
       
       $(self.el).modal('toggle');
@@ -332,6 +343,9 @@ var PathsBetweenQueryView = Backbone.View.extend({
 
     $(document).off("click", "#save-query-pathsbetween").on("click", "#save-query-pathsbetween", function (evt) {
 
+      // access the singleton sbgnviz instance
+      var sbgnvizInstance = appUtilities.getSbgnvizInstance();
+
       self.currentQueryParameters.geneSymbols = document.getElementById("query-pathsbetween-gene-symbols").value;
       self.currentQueryParameters.lengthLimit = Number(document.getElementById("query-pathsbetween-length-limit").value);
 
@@ -363,15 +377,15 @@ var PathsBetweenQueryView = Backbone.View.extend({
       filename = filename + '_PATHSBETWEEN.sbgnml';
       setFileContent(filename);
 
-      sbgnviz.startSpinner('paths-between-spinner');
+      sbgnvizInstance.startSpinner('paths-between-spinner');
 
       queryURL = queryURL + sources;
       $.ajax({
         url: queryURL,
         type: 'GET',
         success: function (data) {
-          sbgnviz.updateGraph(sbgnviz.convertSbgnmlToJson(data));
-          sbgnviz.endSpinner('paths-between-spinner');
+          sbgnvizInstance.updateGraph(sbgnvizInstance.convertSbgnmlToJson(data));
+          sbgnvizInstance.endSpinner('paths-between-spinner');
         }
       });
 
