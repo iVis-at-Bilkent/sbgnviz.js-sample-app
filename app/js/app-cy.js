@@ -3,18 +3,22 @@ var appUtilities = require('./app-utilities');
 var bioGeneQtip = require('./biogene-qtip');
 
 module.exports = function () {
+
+  // access the singleton sbgnviz instance
+  var sbgnvizInstance = appUtilities.getSbgnvizInstance();
+
+  // access the singleton cy instance
+  var cy = appUtilities.getCy();
+
   var getExpandCollapseOptions = appUtilities.getExpandCollapseOptions.bind(appUtilities);
   var nodeQtipFunction = appUtilities.nodeQtipFunction.bind(appUtilities);
   var refreshUndoRedoButtonsStatus = appUtilities.refreshUndoRedoButtonsStatus.bind(appUtilities);
 
-  $(document).ready(function ()
-  {
-    appUtilities.sbgnNetworkContainer = $('#sbgn-network-container');
-    // register extensions and bind events when cy is ready
-    cy.ready(function () {
-      cytoscapeExtensionsAndContextMenu();
-      bindCyEvents();
-    });
+  appUtilities.sbgnNetworkContainer = $('#sbgn-network-container');
+  // register extensions and bind events when cy is ready
+  cy.ready(function () {
+    cytoscapeExtensionsAndContextMenu();
+    bindCyEvents();
   });
 
   function cytoscapeExtensionsAndContextMenu() {
@@ -150,7 +154,7 @@ module.exports = function () {
       },
       neighbor: function(node){ //select and return process-based neighbors
         node.select();
-        var neighbors = sbgnviz.elementUtilities.extendNodeList();
+        var neighbors = sbgnvizInstance.elementUtilities.extendNodeList();
         return neighbors;
       },
       neighborSelectTime: 1000 //ms
