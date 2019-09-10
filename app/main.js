@@ -39,7 +39,7 @@ libs.filesaverjs = filesaverjs;
 libs.jQuery = jQuery;
 libs.cytoscape = cytoscape;
 
-sbgnviz({
+var options = {
   networkContainerSelector: '#sbgn-network-container',
   imgPath: 'node_modules/sbgnviz/src/img',
   // whether to fit label to nodes
@@ -55,7 +55,17 @@ sbgnviz({
     return appUtilities.currentGeneralProperties.compoundPadding;
   },
   undoable: true
-}, libs);
+};
+
+$(document).ready(function () {
+sbgnviz.register(libs);
+
+var s = sbgnviz(options);
+
+window.sbgnviz = s;
+window.cy = s.getCy();
 
 appCy();
 appMenu();
+
+});
