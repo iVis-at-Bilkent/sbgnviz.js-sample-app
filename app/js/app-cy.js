@@ -129,22 +129,34 @@ module.exports = function () {
 
     cy.viewUtilities({
       node: {
-        highlighted: {
-          'border-width': '10px'
-        }, // styles for when nodes are highlighted.
-        unhighlighted: {// styles for when nodes are unhighlighted.
-          'opacity': function (ele) {
-            return ele.css('opacity');
+        highlighted: { // styles for when nodes are highlighted.
+          'border-width': function(ele) {
+            return Math.max(parseFloat(ele.data('border-width')) + 2, 3);
+          },
+          'border-color': '#0B9BCD'
+        },
+        selected: {
+          'border-color': '#d67614',
+          'background-color': function (ele) {
+            return ele.css('background-color');
           }
         }
       },
       edge: {
         highlighted: {
-          'width': '10px'
-        }, // styles for when edges are highlighted.
-        unhighlighted: {// styles for when edges are unhighlighted.
-          'opacity': function (ele) {
-            return ele.css('opacity');
+          'width': function(ele) { // styles for when edges are highlighted.
+            return parseFloat(ele.data('width')) + 2;
+          },
+          'line-color': '#0B9BCD',
+          'source-arrow-color': '#0B9BCD',
+          'target-arrow-color': '#0B9BCD'
+        },
+        selected: {
+          'line-color': '#d67614',
+          'source-arrow-color': '#d67614',
+          'target-arrow-color': '#d67614',
+          'width': function (ele) {
+            return parseFloat(ele.data('width')) + 2;
           }
         }
       },
@@ -167,6 +179,7 @@ module.exports = function () {
       }
     });
 
+    cy.panzoom(panProps);
 //    appUtilities.sbgnNetworkContainer.cytoscapePanzoom(panProps);
   }
 
