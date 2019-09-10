@@ -1,5 +1,6 @@
 var sbgnviz = require('sbgnviz');
 var filesaverjs = require('filesaverjs');
+var tippy = require('tippy.js');
 window.jQuery = window.$ = require('jquery'); // jQuery should be global because jQuery.qtip extension is not compatible with commonjs
 var cytoscape = require('cytoscape');
 
@@ -38,6 +39,7 @@ var libs = {};
 libs.filesaverjs = filesaverjs;
 libs.jQuery = jQuery;
 libs.cytoscape = cytoscape;
+libs.tippy = tippy;
 
 var options = {
   networkContainerSelector: '#sbgn-network-container',
