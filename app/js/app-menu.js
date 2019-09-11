@@ -237,7 +237,8 @@ module.exports = function () {
     //TODO: could simply keep/store original input SBGN-ML data and use it here instead of converting from JSON
     $("#save-as-sbgnml, #save-icon").click(function (evt) {
       var filename = document.getElementById('file-name').innerHTML;
-      sbgnviz.saveAsSbgnml(filename);
+      var renderInfo = appUtilities.getAllStyles();
+      sbgnviz.saveAsSbgnml(filename, "0.2", renderInfo, appUtilities.currentGeneralProperties);
     });
 
     appUtilities.sbgnNetworkContainer.on("click", ".biogene-info .expandable", function (evt) {

@@ -1,4 +1,5 @@
 var jQuery = $ = require('jquery');
+var chroma = require('chroma-js');
 
 var appUtilities = {};
 
@@ -44,6 +45,221 @@ appUtilities.setFileContent = function (fileName) {
     span.removeChild(span.firstChild);
   }
   span.appendChild(document.createTextNode(fileName));
+};
+
+appUtilities.getColorsFromElements = function (nodes, edges) {
+  var colorHash = {};
+  var colorID = 0;
+  for(var i=0; i<nodes.length; i++) {
+    var node = nodes[i];
+    var bgValidColor = appUtilities.elementValidColor(node, 'background-color');
+    if (!colorHash[bgValidColor]) {
+      colorID++;
+      colorHash[bgValidColor] = 'color_' + colorID;
+    }
+
+    var borderValidColor = appUtilities.elementValidColor(node, 'border-color');
+    if (!colorHash[borderValidColor]) {
+      colorID++;
+      colorHash[borderValidColor] = 'color_' + colorID;
+    }
+  }
+  for(var i=0; i<edges.length; i++) {
+    var edge = edges[i];
+    var lineValidColor = appUtilities.elementValidColor(edge, 'line-color');
+    if (!colorHash[lineValidColor]) {
+      colorID++;
+      colorHash[lineValidColor] = 'color_' + colorID;
+    }
+  }
+  return colorHash;
+};
+
+appUtilities.elementValidColor = function (ele, colorProperty) {
+  if (ele.data(colorProperty)) {
+    if (colorProperty == 'background-color') { // special case, take in count the opacity
+      if (ele.data('background-opacity')) {
+        return getXmlValidColor(ele.data('background-color'), ele.data('background-opacity'));
+      }
+      else {
+        return getXmlValidColor(ele.data('background-color'));
+      }
+    }
+    else { // general case
+      return getXmlValidColor(ele.data(colorProperty));
+    }
+  }
+  else { // element don't have that property
+    return undefined;
+  }
+};
+
+// accepts short or long hex or rgb color, return sbgnml compliant color value (= long hex)
+// can optionnally convert opacity value and return a 8 characer hex color
+function getXmlValidColor(color, opacity) {
+  var finalColor = chroma(color).hex();
+  if (typeof opacity === 'undefined') {
+    return finalColor;
+  }
+  else { // append opacity as hex
+    // see http://stackoverflow.com/questions/2877322/convert-opacity-to-hex-in-javascript
+    return finalColor + Math.floor(opacity * 255).toString(16);
+  }
+};
+
+appUtilities.getImagesFromElements = function (nodes) {
+  var imageHash = {};
+  var imageID = 0;
+  for(var i=0; i<nodes.length; i++) {
+    var node = nodes[i];
+    var validImages = appUtilities.elementValidImages(node);
+    if(!validImages)
+      continue;
+    validImages.forEach(function(img){
+      if (!imageHash[img]) {
+        imageID++;
+        imageHash[img] = 'image_' + imageID;
+      }
+    });
+  }
+  
+  return imageHash;
+};
+
+appUtilities.elementValidImages = function (ele) {
+  if (ele.isNode() && ele.data('background-image')) {
+    return ele.data('background-image').split(" ");
+  }
+  else { // element don't have that property
+    return undefined;
+  }
+};
+
+appUtilities.getAllStyles = function (_cy) {
+
+  // use _cy param if it is set else use the recently active cy instance
+//  var cy = _cy || appUtilities.getActiveCy();
+
+  var collapsedChildren = cy.expandCollapse('get').getAllCollapsedChildrenRecursively();
+  var collapsedChildrenNodes = collapsedChildren.filter("node");
+  var nodes = cy.nodes().union(collapsedChildrenNodes);
+  var collapsedChildrenEdges = collapsedChildren.filter("edge");
+  var edges = cy.edges().union(collapsedChildrenEdges);
+
+  // first get all used colors and background images, then deal with them and keep reference to them
+  var colorUsed = appUtilities.getColorsFromElements(nodes, edges);
+  var imagesUsed = appUtilities.getImagesFromElements(nodes);
+
+  var nodePropertiesToXml = {
+    'background-color': 'fill',
+    'background-opacity': 'background-opacity', // not an sbgnml XML attribute, but used with fill
+    'border-color': 'stroke',
+    'border-width': 'strokeWidth',
+    'font-size': 'fontSize',
+    'font-weight': 'fontWeight',
+    'font-style': 'fontStyle',
+    'font-family': 'fontFamily',
+    'background-image': 'backgroundImage',
+    'background-fit': 'backgroundFit',
+    'background-position-x': 'backgroundPosX',
+    'background-position-y': 'backgroundPosY',
+    'background-height': 'backgroundHeight',
+    'background-width': 'backgroundWidth',
+    'background-image-opacity': 'backgroundImageOpacity',
+  };
+  var edgePropertiesToXml = {
+    'line-color': 'stroke',
+    'width': 'strokeWidth'
+  };
+
+  function getStyleHash (element, properties) {
+    var hash = "";
+    for(var cssProp in properties){
+      if (element.data(cssProp)) {
+        if(cssProp === 'background-image'){
+          var imgs = appUtilities.elementValidImages(element);
+          hash += appUtilities.elementValidImageIDs(imgs, imagesUsed);
+        }
+        else
+          hash += element.data(cssProp).toString();
+      }
+      else {
+        hash += "";
+      }
+    }
+    return hash;
+  }
+
+  function getStyleProperties (element, properties) {
+    var props = {};
+    for(var cssProp in properties){
+      if (element.data(cssProp)) {
+        //if it is a color property, replace it with corresponding id
+        if (cssProp == 'background-color' || cssProp == 'border-color' || cssProp == 'line-color') {
+          var validColor = appUtilities.elementValidColor(element, cssProp);
+          var colorID = colorUsed[validColor];
+          props[properties[cssProp]] = colorID;
+        }
+        //if it is background image property, replace it with corresponding id 
+        else if(cssProp == 'background-image'){
+          var imgs = appUtilities.elementValidImages(element);
+          props[properties[cssProp]] = appUtilities.elementValidImageIDs(imgs, imagesUsed);
+        }
+        else{
+          props[properties[cssProp]] = element.data(cssProp);
+        }
+      }
+    }
+    return props;
+  }
+
+  // populate the style structure for nodes
+  var styles = {}; // list of styleKey pointing to a list of properties and a list of nodes
+  for(var i=0; i<nodes.length; i++) {
+    var node = nodes[i];
+    var styleKey = "node"+getStyleHash(node, nodePropertiesToXml);
+    if (!styles.hasOwnProperty(styleKey)) { // new style encountered, init this new style
+      var properties = getStyleProperties(node, nodePropertiesToXml);
+      styles[styleKey] = {
+        idList: [],
+        properties: properties
+      };
+    }
+    var currentNodeStyle = styles[styleKey];
+    // add current node id to this style
+    currentNodeStyle.idList.push(node.data('id'));
+  }
+
+  // populate the style structure for edges
+  for(var i=0; i<edges.length; i++) {
+    var edge = edges[i];
+    var styleKey = "edge"+getStyleHash(edge, edgePropertiesToXml);
+    if (!styles.hasOwnProperty(styleKey)) { // new style encountered, init this new style
+      var properties = getStyleProperties(edge, edgePropertiesToXml);
+      styles[styleKey] = {
+        idList: [],
+        properties: properties
+      };
+    }
+    var currentEdgeStyle = styles[styleKey];
+    // add current node id to this style
+    currentEdgeStyle.idList.push(edge.data('id'));
+  }
+
+  var containerBgColor = $(cy.container()).css('background-color');
+  if (containerBgColor == "transparent") {
+    containerBgColor = "#ffffff";
+  }
+  else {
+    containerBgColor = getXmlValidColor(containerBgColor);
+  }
+
+  return {
+    colors: colorUsed,
+    images: imagesUsed,
+    background: containerBgColor,
+    styles: styles
+  };
 };
 
 appUtilities.triggerIncrementalLayout = function () {
