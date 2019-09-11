@@ -199,53 +199,54 @@
         </div>
 
         <div id="sbgn-toolbar" style="margin-top: 10px;">
-            <table width="100%" height="100%" align="center" valign="center">
-                <tr>
                 <div class="inside-menu">
-                <img id="load-file-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/load.png" title="Load: Load an SBGN map from SBGN-ML file">
-                <img id="save-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/save.png" title="Save: Save current SBGN map to an SBGN-ML file">
-                <img id="properties-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/properties.png" title="Properties: Modify general properties of current SBGN map" >
+                    <img id="load-file-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/load.svg" title="Load: Load an SBGN map from SBGN-ML file">
+                    <img id="save-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/save.svg" title="Save: Save current SBGN map to an SBGN-ML file">
+                    <img id="properties-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/settings.svg" title="Properties: Modify general properties of current SBGN map" >
                 </div>
 
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
+                  
+                    <img id="delete-selected-simple-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/delete-simple.svg" title="Delete Selected Simple: Delete selected nodes and interactions" >
+                    <img id="delete-selected-smart-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/delete-smart.svg" title="Delete Selected Smart: Delete selected nodes and any processes they are involved in" >
 
-                <img id="delete-selected-simple-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/deletesimple.png" title="Delete Selected Simple: Delete selected nodes and interactions" >
-                <img id="delete-selected-smart-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/deletesmart.png" title="Delete Selected Smart: Delete selected nodes and any processes they are involved in" >
+                    <div class="menu-break-small sbgn-toolbar-element">&nbsp</div>
+                    <img id="undo-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/undo.svg" title="Undo: Undo the last operation" >
+                    <img id="redo-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/redo.svg" title="Redo: Redo the last undone operation" >
+                
+                </div>
 
-                <div class="menu-break-small sbgn-toolbar-element">&nbsp</div>
-                <img id="undo-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/undo.png" title="Undo: Undo the last operation" >
-                <img id="redo-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/redo.png" title="Redo: Redo the last undone operation" >
+                <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
+                <div class="inside-menu">
+                  
+                    <img id="hide-selected-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/hide-selected.svg" title="Hide Selected: Hide selected nodes and any processes they are involved in" >
+                    <img id="show-selected-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/show-all.svg" title="Show Selected: Show selected nodes and any processes they are involved in, hiding the remaining nodes and their interactions" >
+
+                    <div class="menu-break-small sbgn-toolbar-element">&nbsp</div>
+                    <img id="collapse-selected-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/collapse-selected.svg" title="Collapse Selected: Collapse selected compound node to hide its members" >
+                    <img id="expand-selected-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/expand-selected.svg" title="Expand Selected: Expand selected collapsed node to show its members" >
 
                 </div>
 
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
-                <img id="hide-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/hideselected.png" title="Hide Selected: Hide selected nodes and any processes they are involved in" >
-                <img id="show-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/showselected.png" title="Show Selected: Show selected nodes and any processes they are involved in, hiding the remaining nodes and their interactions" >
-
-                <div class="menu-break-small sbgn-toolbar-element">&nbsp</div>
-                <img id="collapse-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/collapseselected.png" title="Collapse Selected: Collapse selected compound node to hide its members" >
-                <img id="expand-selected-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/expandselected.png" title="Expand Selected: Expand selected collapsed node to show its members" >
-
+                  
+                    <img id="search-by-label-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/search.svg" title="Search: Search and find (case insensitive) all nodes with specified label text, selecting them and highlighting them along with their processes" >
+                    <input id="search-by-label-text-box" class="sbgn-toolbar-element" type="label">
+                    <img id="highlight-neighbors-of-selected-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/highlight-selected.svg" title="Highlight Neighbors of Selected: Highlight selected nodes and their neighbors by ghosting remaining nodes" >
+                    <img id="remove-highlights-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/remove-highlights.svg" title="Remove Highlights: Remove any highlights" >
+                
                 </div>
 
                 <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
                 <div class="inside-menu">
-                <img id="search-by-label-icon" class="sbgn-toolbar-element" src="app/img/search.png" title="Search: Search and find (case insensitive) all nodes with specified label text, selecting them and highlighting them along with their processes" >
-                <input id="search-by-label-text-box" class="sbgn-toolbar-element" type="label">
-                <img id="highlight-neighbors-of-selected-icon" width="24px" height="24px" class="sbgn-toolbar-element" src="app/img/toolbar-icons/highlight-selected.svg" title="Highlight Neighbors of Selected: Highlight selected nodes and their neighbors by ghosting remaining nodes" >
-                <img id="remove-highlights-icon" width="24px" height="24px" class="sbgn-toolbar-element" src="app/img/toolbar-icons/remove-highlights.svg" title="Remove Highlights: Remove any highlights" >
+                  
+                    <img id="perform-layout-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layout-cose.svg" title="Perform Layout: Perform a force-directed layout of current map, maintaining compound structures" >
+                    <img id="layout-properties-icon" width="24" height="24" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layout-properties.svg" title="Layout Properties: Modify parameters used during layout" >
+                
                 </div>
 
-                <div class="menu-break-large sbgn-toolbar-element">&nbsp</div>
-                <div class="inside-menu">
-                <img id="perform-layout-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layout-cose.png" title="Perform Layout: Perform a force-directed layout of current map, maintaining compound structures" >
-                <img id="layout-properties-icon" class="sbgn-toolbar-element" src="app/img/toolbar-icons/layoutproperties.png" title="Layout Properties: Modify parameters used during layout" >
-                </div>
-                </tr>
-
-            </table>
         </div>
 
         <div id="sbgn-network-container">
