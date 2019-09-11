@@ -33,7 +33,6 @@
     "cytoscape-undo-redo": "github:iVis-at-Bilkent/cytoscape.js-undo-redo#unstable",
     "cytoscape-expand-collapse": "github:iVis-at-Bilkent/cytoscape.js-expand-collapse#unstable",
     "cytoscape-clipboard": "github:iVis-at-Bilkent/cytoscape.js-clipboard#unstable",
-    "cytoscape-edge-editing": "github:iVis-at-Bilkent/cytoscape.js-edge-editing#unstable",
     "cytoscape-view-utilities": "github:iVis-at-Bilkent/cytoscape.js-view-utilities#unstable",
     "cytoscape-context-menus": "github:iVis-at-Bilkent/cytoscape.js-context-menus#unstable",
     "sbgnviz": "iVis-at-Bilkent/sbgnviz.js#unstable"

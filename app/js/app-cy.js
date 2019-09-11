@@ -23,19 +23,6 @@ module.exports = function () {
     var contextMenus = cy.contextMenus({
     });
 
-    cy.edgeEditing({
-      // this function specifies the positions of bend points
-      bendPositionsFunction: function (ele) {
-        return ele.data('bendPointPositions');
-      },
-      // whether the bend editing operations are undoable (requires cytoscape-undo-redo.js)
-      undoable: true,
-      // title of remove bend point menu item
-      removeBendMenuItemTitle: "Delete Bend Point",
-      // whether to initilize bend points on creation of this extension automatically
-      initBendPointsAutomatically: false
-    });
-
     contextMenus.appendMenuItems([
       {
         id: 'ctx-menu-general-properties',
