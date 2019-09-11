@@ -23,7 +23,7 @@ module.exports = function () {
     var contextMenus = cy.contextMenus({
     });
 
-    cy.edgeBendEditing({
+    cy.edgeEditing({
       // this function specifies the positions of bend points
       bendPositionsFunction: function (ele) {
         return ele.data('bendPointPositions');
