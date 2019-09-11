@@ -42,7 +42,7 @@ module.exports = function () {
     // time out before loading the default sample. 
     // TODO search for a better way.
     setTimeout(function(){
-      loadSample('neuronal_muscle_signaling.xml');
+      loadSample('neuronal_muscle_signaling.nwt');
     }, 100);
   });
   
@@ -90,19 +90,22 @@ module.exports = function () {
     });
 
     var selectorToSampleFileName = {
-      "#load-sample1" : 'neuronal_muscle_signaling.xml',
-      "#load-sample2" : 'cam-camk_dependent_signaling_to_the_nucleus.xml',
-      "#load-sample3" : 'atm_mediated_phosphorylation_of_repair_proteins.xml',
-      "#load-sample4" : 'activated_stat1alpha_induction_of_the_irf1_gene.xml',
-      "#load-sample5" : 'vitamins_b6_activation_to_pyridoxal_phosphate.xml',
-      "#load-sample6" : 'insulin-like_growth_factor_signaling.xml',
-      "#load-sample7" : 'polyq_proteins_interference.xml',
-      "#load-sample8" : 'glycolysis.xml',
-      "#load-sample9" : 'mapk_cascade.xml',
-      "#load-sample10" : 'transforming_growth_factor_beta_signaling.xml',
-      "#load-sample11" : 'repressilator.xml',
-      "#load-sample12" : 'epidermal_growth_factor_receptor.xml',
-      "#load-sample13" : 'regulation_of_tgfbeta-induced_metastasis.xml'
+      "#load-sample1" : 'neuronal_muscle_signaling.nwt',
+      "#load-sample2" : 'cam-camk_dependent_signaling_to_the_nucleus.nwt',
+      "#load-sample3" : 'atm_mediated_phosphorylation_of_repair_proteins.nwt',
+      "#load-sample4" : 'activated_stat1alpha_induction_of_the_irf1_gene.nwt',
+      "#load-sample5" : 'vitamins_b6_activation_to_pyridoxal_phosphate.nwt',
+      "#load-sample6" : 'insulin-like_growth_factor_signaling.nwt',
+      "#load-sample7" : 'polyq_proteins_interference.nwt',
+      "#load-sample8" : 'glycolysis.nwt',
+      "#load-sample9" : 'mapk_cascade.nwt',
+      "#load-sample10" : 'drosophila_cell_cycle.nwt',
+      "#load-sample11" : 'mammalian_cholesterol.nwt',
+      "#load-sample12" : 'two_gene_system_behavior.nwt',      
+      "#load-sample13" : 'transforming_growth_factor_beta_signaling.nwt',
+      "#load-sample14" : 'repressilator.nwt',
+      "#load-sample15" : 'epidermal_growth_factor_receptor.nwt',
+      "#load-sample16" : 'regulation_of_tgfbeta-induced_metastasis.nwt'
     };
 
     for ( var selector in selectorToSampleFileName ) {

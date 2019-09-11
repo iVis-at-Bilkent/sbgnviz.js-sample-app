@@ -135,6 +135,19 @@ appUtilities.elementValidImages = function (ele) {
   }
 };
 
+appUtilities.elementValidImageIDs = function (imgs, imagesUsed) {
+  if(imgs && imagesUsed && imgs.length > 0){
+    var ids = [];
+    imgs.forEach(function(img){
+      ids.push(imagesUsed[img]);
+    });
+    return ids.join(" ");
+  }
+  else{
+    return undefined;
+  }
+};
+
 appUtilities.getAllStyles = function (_cy) {
 
   // use _cy param if it is set else use the recently active cy instance
